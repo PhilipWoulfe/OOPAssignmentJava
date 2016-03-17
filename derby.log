@@ -1,0 +1,128 @@
+----------------------------------------------------------------
+Thu Mar 17 11:11:20 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:20 GMT 2016:
+Shutting down instance a816c00e-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:20 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 08264012-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:21 GMT 2016:
+Shutting down instance 08264012-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:21 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 6839c016-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:21 GMT 2016:
+Shutting down instance 6839c016-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:21 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance c851401a-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:21 GMT 2016:
+Shutting down instance c851401a-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:27 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 286cc01e-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:27 GMT 2016:
+Shutting down instance 286cc01e-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:27 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 888c4022-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:28 GMT 2016:
+Shutting down instance 888c4022-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:28 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance e8afc026-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:28 GMT 2016:
+Shutting down instance e8afc026-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+----------------------------------------------------------------
+Thu Mar 17 11:11:28 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 48d7402a-0153-8445-ccac-000004e59da0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Mar 17 11:11:28 GMT 2016:
+Shutting down instance 48d7402a-0153-8445-ccac-000004e59da0 on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
