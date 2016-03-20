@@ -5,50 +5,65 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+
 import javax.swing.SwingConstants;
+
+import projFlight.Event.GUIMainEvent;
+import projFlight.IO.ReadWriteDB;
+import projFlight.models.Flight;
+import projFlight.models.User;
 
 public class GUIConfirmScreen extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JTextField txtName;
-	public JTextField txtSeat;
-	public JTextField txtLeg1;
-	public JTextField txtLeg2;
-	public JTextField txtInsurance;
-	public JTextField txtBookRef;
+	private JTextField txtName;
 
-	public JButton btnConfirm;
-	public JButton btnPrint;
-	public JButton btnExit;
-	JLabel lblName;
-	JLabel lblSeatType;
-	JLabel lblLeg1;
-	public JLabel lblLeg2;
-	JLabel lblInsurance;
-	JLabel lblBookingReference;
+
+	private JTextField txtSeat;
+	private JTextField txtLeg1;
+	private JTextField txtLeg2;
+	private JTextField txtInsurance;
+	private JTextField txtBookRef;
+
+	private JButton btnConfirm;
+	private JButton btnPrint;
+	private JButton btnExit;
+	private JLabel lblName;
+	private JLabel lblSeatType;
+	private JLabel lblLeg1;
+	private JLabel lblLeg2;
+	private JLabel lblInsurance;
+	private JLabel lblBookingReference;
+	private Flight flight;
 
 	/**
 	 * Create the panel.
 	 */
-	public GUIConfirmScreen() {
+	public GUIConfirmScreen(GUIMainEvent event, User u, Flight flight) {
 		setLayout(null);
+		
+		this.flight = flight;
 
 		btnConfirm = new JButton("Confirm");
 		btnConfirm.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		btnConfirm.setBounds(66, 360, 104, 23);
+		btnConfirm.addActionListener(event);;
 		add(btnConfirm);
 
 		btnPrint = new JButton("Print");
 		btnPrint.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		btnPrint.setEnabled(false);
 		btnPrint.setBounds(194, 360, 104, 23);
+		btnPrint.addActionListener(event);
 		add(btnPrint);
 
 		btnExit = new JButton("Exit");
 		btnExit.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		btnExit.setBounds(321, 360, 104, 23);
+		btnExit.addActionListener(event);
 		add(btnExit);
 
 		lblName = new JLabel("Name");
@@ -128,6 +143,96 @@ public class GUIConfirmScreen extends JPanel {
 		txtBookRef.setColumns(10);
 		txtBookRef.setBounds(312, 313, 113, 23);
 		add(txtBookRef);
+		
+		setTxtName(u.getFirstName() + " " + u.getLastName());
+		String temp = flight.getLeg1SeatType();
+		setTxtLeg1(ReadWriteDB.getCodeForAirport(flight.getDeptLeg1Aircode()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg1AirCode()));
+		if (!flight.getDeptLeg2AirCode().equals("")) {
+			setTxtLeg2(flight.getDeptLeg2AirCode() + "To " + flight.getDestLeg2AirCode());
+		}
+		
+		setTxtSeat(flight.getLeg1SeatType());
+		setTxtBookRef(flight.getBookingRef() + "");
+		
+		if (flight.isHasInsurance()) {
+			setTxtInsurance("Yes");
+		} else {
+			setTxtInsurance("No");
+		}
+		
 
+	}
+	
+	public JTextField getTxtName() {
+		return txtName;
+	}
+
+	public void setTxtName(String name) {
+		txtName.setText(name);
+	}
+
+	public String getTxtSeat() {
+		return txtSeat.getText();
+	}
+
+	public void setTxtSeat(String seatType) {
+		this.txtSeat.setText(seatType);;
+	}
+
+	public String getTxtLeg1() {
+		return txtLeg1.getText();
+	}
+
+	public void setTxtLeg1(String leg1) {
+		this.txtLeg1.setText(leg1);
+	}
+
+	public String getTxtLeg2() {
+		return txtLeg2.getText();
+	}
+
+	public void setTxtLeg2(String leg2) {
+		this.txtLeg2.setText(leg2);;
+	}
+
+	public String getTxtInsurance() {
+		return txtInsurance.getText();
+	}
+
+	public void setTxtInsurance(String insurance) {
+		this.txtInsurance.setText(insurance);
+	}
+
+	public String getTxtBookRef() {
+		return txtBookRef.getText();
+	}
+
+	public void setTxtBookRef(String bookRef) {
+		this.txtBookRef.setText(bookRef);
+	}
+
+	public boolean isSourceBtnConfirm(Object source) {
+		return source == btnConfirm;
+	}
+	
+	public void enableBtnConfirm(boolean enabled) {
+		btnConfirm.setEnabled(enabled);
+	}
+	
+	public boolean isSourceBtnPrint(Object source) {
+		return source == btnPrint;
+	}
+	
+	public boolean isSourceBtnExit(Object source) {
+		return source == btnExit;
+	}
+	
+	public void enableLeg2(boolean enabled) {
+		txtLeg2.setEnabled(enabled);
+		lblLeg2.setEnabled(enabled);
+	}
+	
+	public Flight getFlight() {
+		return flight;
 	}
 }

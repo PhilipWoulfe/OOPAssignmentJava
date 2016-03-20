@@ -14,20 +14,16 @@ import javax.swing.JPanel;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import projFlight.GUIMainEvent;
-import projFlight.gui.GUIConfirmScreen;
-import projFlight.gui.GUICustomerScreen;
+import projFlight.Event.GUIMainEvent;
 
 public class GUIMain {
 
 	GUIMainEvent mainEvent = new GUIMainEvent(this);
 
-	public JFrame frame;
-	public GUILoginScreen login = new GUILoginScreen(mainEvent);
+	private JFrame frame;
+	private GUILoginScreen login = new GUILoginScreen(mainEvent);
 	
-	public GUIConfirmScreen confirmScreen = new GUIConfirmScreen();
-	public GUIMaintenanceScreen maintenanceScreen = new GUIMaintenanceScreen();
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -75,12 +71,6 @@ public class GUIMain {
 		frame.setBounds(100, 100, 503, 476);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
-		maintenanceScreen.btnAddAirport.addActionListener(mainEvent);
-		maintenanceScreen.btnRemove.addActionListener(mainEvent);
-		maintenanceScreen.btnLogout.addActionListener(mainEvent);
-
 	}
 
 	/**
@@ -111,7 +101,10 @@ public class GUIMain {
 		mainFrame.repaint();
 		mainFrame.revalidate();
 	}
-
+	
+	public JFrame getFrame() {
+		return this.frame;
+	}
 	// method to set the look and feel of the GUI
 	private static void setLookAndFeel() {
 		try {

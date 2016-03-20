@@ -1,116 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="projFlight.GUIConfirmScreen" project="projFlight" 
-    file="/projFlight/src/projFlight/GUIConfirmScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="627" y="614"/>    
+  <class id="1" language="java" name="projFlight.gui.GUILoginScreen" project="projFlight" 
+    file="/projFlight/src/projFlight/gui/GUILoginScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1982" y="1247"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="projFlight.GUICustomerScreen" project="projFlight" 
-    file="/projFlight/src/projFlight/GUICustomerScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="60" y="624"/>    
+  <package id="2" language="java" name="projFlight.IO" project="projFlight" file="/projFlight/src/projFlight/IO" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="101" x="485" y="-56"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="3" language="java" name="projFlight.models.User" project="projFlight" 
+    file="/projFlight/src/projFlight/models/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="150" x="930" y="353"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="projFlight.GUILoginScreen" project="projFlight" 
-    file="/projFlight/src/projFlight/GUILoginScreen.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="934" y="543"/>    
+  <class id="4" language="java" name="projFlight.gui.GUICustomerScreen" project="projFlight" 
+    file="/projFlight/src/projFlight/gui/GUICustomerScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1017" width="264" x="1120" y="353"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="projFlight.GUIMain" project="projFlight" 
-    file="/projFlight/src/projFlight/GUIMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="268" y="186"/>    
+  <class id="5" language="java" name="projFlight.gui.GUIConfirmScreen" project="projFlight" 
+    file="/projFlight/src/projFlight/gui/GUIConfirmScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="693" width="242" x="1424" y="353"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="projFlight.GUIMainEvent" project="projFlight" 
-    file="/projFlight/src/projFlight/GUIMainEvent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="324" y="1038"/>    
+  <class id="6" language="java" name="projFlight.gui.GUIMain" project="projFlight" 
+    file="/projFlight/src/projFlight/gui/GUIMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="237" x="1727" y="353"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="6">    
-    <bendpoint x="51" y="266"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="7" name="customerScreen"/>      
-      <multiplicity id="8" minimum="0" maximum="1"/>    
+  <class id="7" language="java" name="projFlight.models.SeatType" project="projFlight" 
+    file="/projFlight/src/projFlight/models/SeatType.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="145" x="626" y="-56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="projFlight.models.Airport" project="projFlight" 
+    file="/projFlight/src/projFlight/models/Airport.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="139" x="811" y="-56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="projFlight.models.Flight" project="projFlight" 
+    file="/projFlight/src/projFlight/models/Flight.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1777" y="1318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="10" language="java" name="projFlight.gui" project="projFlight" file="/projFlight/src/projFlight/gui" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="101" x="990" y="-56"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="11" language="java" name="projFlight.Event.GUIMainEvent" project="projFlight" 
+    file="/projFlight/src/projFlight/Event/GUIMainEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="194" x="1727" y="-56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="12" language="java" name="projFlight.Event" project="projFlight" file="/projFlight/src/projFlight/Event" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="110" x="1131" y="-56"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="13" language="java" name="projFlight.gui.GUIMaintenanceScreen" project="projFlight" 
+    file="/projFlight/src/projFlight/gui/GUIMaintenanceScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="567" width="273" x="2025" y="353"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="projFlight.IO.ReadWriteDB" project="projFlight" 
+    file="/projFlight/src/projFlight/IO/ReadWriteDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="245" x="1281" y="-56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="15" language="java" name="projFlight.models" project="projFlight" 
+    file="/projFlight/src/projFlight/models" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="121" x="1566" y="-56"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <association id="16">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="17" name="flight"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="9">    
-    <bendpoint x="372" y="266"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="login"/>      
-      <multiplicity id="11" minimum="0" maximum="1"/>    
+  <association id="19">    
+    <bendpoint x="1696" y="353"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="20" name="f"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="12">    
-    <bendpoint x="351" y="266"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="confirmScreen"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
+  <association id="22">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="23" name="mainEvent"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <bendpoint x="1994" y="353"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="26" name="login"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="16" name="gui"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
+  <association id="28">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="29" name="user"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="19" name="customerGUI"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
+  <association id="31">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="32" name="login"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="22" name="event"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
+  <association id="34">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="35" name="confirm"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="25" name="loginGUI"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+  <association id="37">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="38" name="maintain"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="28" name="confirmGUI"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
+  <association id="40">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="41" name="gui"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="44" name="customer"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

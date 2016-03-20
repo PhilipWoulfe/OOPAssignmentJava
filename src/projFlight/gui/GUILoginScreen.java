@@ -5,9 +5,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 
-import projFlight.GUIMainEvent;
+import projFlight.Event.GUIMainEvent;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -25,8 +24,6 @@ public class GUILoginScreen extends JPanel {
 	private JLabel lblUsernameError;
 	private JLabel lblPasswordError;
 	
-	public GUICustomerScreen customerScreen;
-
 	/**
 	 * Create the panel.
 	 */
@@ -55,7 +52,7 @@ public class GUILoginScreen extends JPanel {
 		passwordField.setBounds(184, 264, 231, 35);
 		add(passwordField);
 
-		btnLogin = new JButton("OK");
+		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 18));
 		btnLogin.setBounds(184, 330, 109, 35);
 		btnLogin.addActionListener(mainEvent);
@@ -116,14 +113,4 @@ public class GUILoginScreen extends JPanel {
 	public boolean btnCloseIsSource(Object source) {
 		return source == btnClose;
 	}
-	
-	public void createCustomerGUI(GUIMainEvent mainEvent, String fName, String lName) {
-		customerScreen = new GUICustomerScreen(mainEvent, fName, lName);
-		mainEvent.setCustomer(customerScreen);
-	}
-	
-	public void closeCustomerGUI() {
-		customerScreen = null;
-	}
-	
 }

@@ -4,13 +4,12 @@ import javax.swing.JPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JRadioButton;
 
-import projFlight.GUIMainEvent;
+import projFlight.Event.GUIMainEvent;
+import projFlight.models.User;
 
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
@@ -43,7 +42,8 @@ public class GUICustomerScreen extends JPanel {
 	private JButton btnLogout;
 	private String defaultItem = "--Select Airport--";
 
-	public GUICustomerScreen(GUIMainEvent event, String fName, String lName) {
+
+	public GUICustomerScreen(GUIMainEvent event, User user) {
 
 		setLayout(null);
 
@@ -174,6 +174,8 @@ public class GUICustomerScreen extends JPanel {
 		btnLogout.addActionListener(event);
 		add(btnLogout);
 		
+		String fName = user.getFirstName();
+		String lName = user.getLastName();
 		JLabel lblHello = new JLabel("<html>Hello, " + fName + "<br>" + lName + "</html>");
 		lblHello.setBounds(380, 22, 89, 46);
 		add(lblHello);

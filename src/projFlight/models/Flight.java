@@ -5,6 +5,7 @@ public class Flight {
 	private int userID;
 	private String deptLeg1Aircode;
 	private String destLeg1AirCode;
+	private String leg1SeatType;
 	private String deptLeg2AirCode;
 	private String destLeg2AirCode;
 	private boolean hasInsurance;
@@ -50,6 +51,12 @@ public class Flight {
 	}
 	public void setHasInsurance(boolean hasInsurance) {
 		this.hasInsurance = hasInsurance;
+	}
+	public String getLeg1SeatType() {
+		return leg1SeatType;
+	}
+	public void setLeg1SeatType(String leg1SeatType) {
+		this.leg1SeatType = leg1SeatType;
 	}
 	
 	

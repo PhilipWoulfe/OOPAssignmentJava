@@ -19,4 +19,7 @@ public class Airport {
 		this.name = name;
 	}
 	
+	public String toString() {
+		return name;
+	}
 }
