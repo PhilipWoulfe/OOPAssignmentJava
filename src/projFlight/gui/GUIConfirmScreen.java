@@ -297,4 +297,12 @@ public class GUIConfirmScreen extends JPanel {
 		txtLeg2.setEnabled(enabled);
 		lblLeg2.setEnabled(enabled);
 	}
+	
+	/**
+	 * enable disable print button
+	 * @param enabled sets print button enabled or disabled
+	 */
+	public void enableBtnPrint(boolean enabled) {
+		btnPrint.setEnabled(enabled);
+	}
 }

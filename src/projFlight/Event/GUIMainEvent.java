@@ -188,6 +188,7 @@ public class GUIMainEvent implements ActionListener {
 			if (confirm.isSourceBtnConfirm(source)) { 
 				confirm.enableBtnConfirm(false);
 				ReadWriteDB.addFlightToDB(user, f);
+				confirm.enableBtnPrint(true);
 			
 			// else if print is clicked
 			} else if (confirm.isSourceBtnPrint(source)) {
