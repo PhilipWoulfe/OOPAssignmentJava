@@ -180,9 +180,10 @@ public class GUIMainEvent implements ActionListener {
 			} else if (customer.isSourceBtnLogout(source)) {
 				logout();
 			}
-			
-		// else if confirm screen exists	
-		} else if (confirm != null) {
+		}
+		
+		// if confirm screen exists
+		if (confirm != null) {
 			
 			// if confirm clicked
 			if (confirm.isSourceBtnConfirm(source)) { 
@@ -204,9 +205,10 @@ public class GUIMainEvent implements ActionListener {
 				customer.clearAllCustomer();
 				confirm = null;
 			}
-
+		} 
+		
 		// if maintain screen exists
-		} else if (maintain != null) {
+		if (maintain != null) {
 			
 			// if add airport is clicked
 			if (maintain.isSourceBtnAddAirport(source)) {
