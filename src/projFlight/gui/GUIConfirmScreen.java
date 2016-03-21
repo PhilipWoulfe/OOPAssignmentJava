@@ -37,15 +37,13 @@ public class GUIConfirmScreen extends JPanel {
 	private JLabel lblLeg2;
 	private JLabel lblInsurance;
 	private JLabel lblBookingReference;
-	private Flight flight;
+
 
 	/**
 	 * Create the panel.
 	 */
 	public GUIConfirmScreen(GUIMainEvent event, User u, Flight flight) {
 		setLayout(null);
-		
-		this.flight = flight;
 
 		btnConfirm = new JButton("Confirm");
 		btnConfirm.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
@@ -232,7 +230,5 @@ public class GUIConfirmScreen extends JPanel {
 		lblLeg2.setEnabled(enabled);
 	}
 	
-	public Flight getFlight() {
-		return flight;
-	}
+
 }

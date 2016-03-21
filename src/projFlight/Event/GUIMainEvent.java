@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 
 import projFlight.IO.ReadWriteDB;
 import projFlight.gui.*;
+import projFlight.models.Airport;
 import projFlight.models.Flight;
 import projFlight.models.User;
 
@@ -26,7 +27,7 @@ import projFlight.models.User;
  */
 public class GUIMainEvent implements ActionListener {
 
-	List<String> airportList = new ArrayList<String>();
+	List<Airport> airportList = new ArrayList<Airport>();
 
 	
 	private GUIMain gui;
@@ -35,12 +36,14 @@ public class GUIMainEvent implements ActionListener {
 	private GUIConfirmScreen confirm;
 	private GUIMaintenanceScreen maintain;
 	
+	private Flight f;
+	
 	
 
 
 
 	User user = new User();
-	Flight f;
+
 
 	static int bookingRef;
 
@@ -130,7 +133,7 @@ public class GUIMainEvent implements ActionListener {
 			logout();
 		} else if (confirm != null && confirm.isSourceBtnConfirm(source)) { //TODO from here
 			confirm.enableBtnConfirm(false);
-			ReadWriteDB.addFlightToDB(user, confirm.getFlight());
+			ReadWriteDB.addFlightToDB(user, f);
 		} else if (confirm != null && confirm.isSourceBtnPrint(source)) {
 			// print
 		} else if (confirm != null && confirm.isSourceBtnExit(source)) {
@@ -142,12 +145,17 @@ public class GUIMainEvent implements ActionListener {
 			confirm = null;
 
 		} else if (maintain != null && maintain.isSourceBtnAddAirport(source)) {
-			String aircode = maintain.getCboCode1() + "" + maintain.getCboCode2() + "" + maintain.getCboCode3();
-			String name = maintain.getTxtAddAirport();
-			
-			ReadWriteDB.addAirportToDB(aircode, name);
-			ReadWriteDB.populateAirportList(airportList);
-			maintain.populateAirportRemoveBox(airportList);
+			if (maintain.getTxtAddAirport().length() < 50) {
+				String aircode = maintain.getCboCode1() + "" + maintain.getCboCode2() + "" + maintain.getCboCode3();
+				String name = maintain.getTxtAddAirport();
+				
+				ReadWriteDB.addAirportToDB(aircode, name);
+				ReadWriteDB.populateAirportList(airportList);
+				maintain.populateAirportRemoveBox(airportList);
+			} else {
+				JOptionPane.showMessageDialog(null,  "Airport name must be less than 50 characters.");
+				maintain.setTxtAddAirport("");
+			}
 		} else if (maintain != null && maintain.isSourceBtnRemove(source)) {
 			// remove airport from db
 			ReadWriteDB.removeAirportFromDB(maintain.getCboAirportRemove().toString());
@@ -177,32 +185,32 @@ public class GUIMainEvent implements ActionListener {
 		int customerSeatTypeIndex = customer.getCboDeptLeg1Index();
 		
 		if (customer.getRdbtnOneWaySelected()) {
-			if (customerDeptLeg1Index == 0 || customerDestLeg1Index == 0 || customerSeatTypeIndex == 0) {
+			if (customerDeptLeg1Index == -1 || customerDestLeg1Index == -1 || customerSeatTypeIndex == 0) {
 				JOptionPane.showMessageDialog(null, "Please select all airports and seat type");
 			} else {
 				confirm = new GUIConfirmScreen(this, user, createFlight());
 				confirm.enableLeg2(false);
+				gui.changeScreens(gui.getFrame(), customer, confirm);
+				gui.addLogo(confirm);
 
 
 			}
 		} else {
-			if (customerDeptLeg1Index == 0 || customerDestLeg1Index == 0 || customerDeptLeg2Index == 0
-					|| customerDestLeg2Index == 0 || customerSeatTypeIndex == 0) {
+			if (customerDeptLeg1Index == -1 || customerDestLeg1Index == -1 || customerDeptLeg2Index == 0
+					|| customerDestLeg2Index == -1 || customerSeatTypeIndex == -1) {
 				JOptionPane.showMessageDialog(null, "Please select all airports and seat type");
 			} else {
 				confirm = new GUIConfirmScreen(this, user, createFlight());
 				confirm.enableLeg2(true);
+				gui.changeScreens(gui.getFrame(), customer, confirm);
+				gui.addLogo(confirm);
 				
 			}
 		}
-		
-		gui.changeScreens(gui.getFrame(), customer, confirm);
-		gui.addLogo(confirm);
-
 	}
 	
 	private Flight createFlight() {
-		Flight f = new Flight();
+		f = new Flight();
 		
 		f.setBookingRef(ReadWriteDB.getNextBookingRef());
 		f.setUserID(user.getUserID());

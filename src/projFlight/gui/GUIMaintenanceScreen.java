@@ -18,6 +18,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 import projFlight.Event.GUIMainEvent;
+import projFlight.models.Airport;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
@@ -30,7 +31,7 @@ public class GUIMaintenanceScreen extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtAddAirport;
-	private JComboBox<String> cboAirportRemove;
+	private JComboBox<Airport> cboAirportRemove;
 	private JButton btnRemove;
 	private JButton btnAddAirport;
 	private JComboBox<String> cboCode1;
@@ -43,7 +44,7 @@ public class GUIMaintenanceScreen extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public GUIMaintenanceScreen(GUIMainEvent event, List<String> airportList) {
+	public GUIMaintenanceScreen(GUIMainEvent event, List<Airport> airportList) {
 		super(new BorderLayout(1, 1));
 
 		JTabbedPane tabbedPane = new JTabbedPane();
@@ -84,7 +85,7 @@ public class GUIMaintenanceScreen extends JPanel {
 		lblRemove.setBounds(60, 56, 177, 14);
 		panel.add(lblRemove);
 
-		cboAirportRemove = new JComboBox<String>();
+		cboAirportRemove = new JComboBox<Airport>();
 		cboAirportRemove.setBounds(60, 81, 221, 33);
 		panel.add(cboAirportRemove);
 
@@ -138,13 +139,13 @@ public class GUIMaintenanceScreen extends JPanel {
 		return panel;
 	}
 	
-	public void populateAirportRemoveBox(List<String> airportList) {
+	public void populateAirportRemoveBox(List<Airport> airportList) {
 		// TODO Auto-generated method stub
-		JComboBox<String> to = cboAirportRemove;
+		JComboBox<Airport> to = cboAirportRemove;
 
 		if (to != null) {
 			to.removeAllItems();
-			to.addItem("--Select airport to remove--");
+			//to.addItem("--Select airport to remove--");
 
 			for (int i = 0; i < airportList.size(); i++) {
 				to.addItem(airportList.get(i));
@@ -157,6 +158,10 @@ public class GUIMaintenanceScreen extends JPanel {
 
 	public String getTxtAddAirport() {
 		return txtAddAirport.getText();
+	}
+	
+	public void setTxtAddAirport(String str) {
+		txtAddAirport.setText(str);
 	}
 
 	public String getCboAirportRemove() {

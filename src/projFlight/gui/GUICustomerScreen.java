@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JRadioButton;
 
 import projFlight.Event.GUIMainEvent;
+import projFlight.models.Airport;
 import projFlight.models.User;
 
 import javax.swing.JComboBox;
@@ -29,13 +30,13 @@ public class GUICustomerScreen extends JPanel {
 	private JRadioButton rdbtnOneWay;
 	private JRadioButton rdbtnReturnsecondLeg;
 	private ButtonGroup group;
-	private JComboBox<String> cboDeptLeg1;
-	private JComboBox<String> cboDestLeg1;
+	private JComboBox<Airport> cboDeptLeg1;
+	private JComboBox<Airport> cboDestLeg1;
 	private JComboBox<String> cboSeatType;
 	private JLabel lblDeptLeg2;
 	private JLabel lblDestLeg2;
-	private JComboBox<String> cboDeptLeg2;
-	private JComboBox<String> cboDestLeg2;
+	private JComboBox<Airport> cboDeptLeg2;
+	private JComboBox<Airport> cboDestLeg2;
 	private JCheckBox chkbxInsurance;
 	private JButton btnBookFlights;
 	private JButton btnClear;
@@ -80,7 +81,7 @@ public class GUICustomerScreen extends JPanel {
 		lblSeatType.setBounds(343, 146, 67, 14);
 		add(lblSeatType);
 
-		cboDeptLeg1 = new JComboBox<String>();
+		cboDeptLeg1 = new JComboBox<Airport>();
 		cboDeptLeg1.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDeptLeg1.setMaximumRowCount(10);
 		cboDeptLeg1.setBounds(40, 171, 132, 20);
@@ -93,7 +94,7 @@ public class GUICustomerScreen extends JPanel {
 		cboDeptLeg1.addActionListener(event);
 		add(cboDeptLeg1);
 
-		cboDestLeg1 = new JComboBox<String>();
+		cboDestLeg1 = new JComboBox<Airport>();
 		cboDestLeg1.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDestLeg1.setMaximumRowCount(10);
 		cboDestLeg1.setBounds(194, 171, 126, 20);
@@ -127,32 +128,32 @@ public class GUICustomerScreen extends JPanel {
 		lblDestLeg2.setBounds(194, 202, 67, 14);
 		add(lblDestLeg2);
 
-		cboDeptLeg2 = new JComboBox<String>();
+		cboDeptLeg2 = new JComboBox<Airport>();
 		cboDeptLeg2.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDeptLeg2.setMaximumRowCount(10);
 		cboDeptLeg2.setEnabled(false);
 		cboDeptLeg2.setBounds(40, 227, 132, 20);
 		cboDeptLeg2.removeAllItems();
 		// TODO move to event?
-		cboDeptLeg2.addItem(defaultItem);
+		//cboDeptLeg2.addItem(defaultItem);
 		cboDeptLeg2.addActionListener(event);
 		add(cboDeptLeg2);
 
-		cboDestLeg2 = new JComboBox<String>();
+		cboDestLeg2 = new JComboBox<Airport>();
 		cboDestLeg2.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDestLeg2.setMaximumRowCount(10);
 		cboDestLeg2.setEnabled(false);
 		cboDestLeg2.setBounds(194, 227, 126, 20);
 		cboDestLeg2.removeAllItems();
 		// TODO move to event?
-		cboDestLeg2.addItem(defaultItem);
+		//cboDestLeg2.addItem(defaultItem);
 		cboDestLeg2.addActionListener(event);
 		add(cboDestLeg2);
 
-		chkbxInsurance = new JCheckBox("<html>Would you like <br>to purchase insurance?</html>");
+		chkbxInsurance = new JCheckBox("Would you like to purchase insurance?");
 		chkbxInsurance.setSelected(true);
 		chkbxInsurance.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
-		chkbxInsurance.setBounds(343, 213, 115, 53);
+		chkbxInsurance.setBounds(50, 254, 420, 23);
 		chkbxInsurance.addActionListener(event);
 		add(chkbxInsurance);
 
@@ -176,7 +177,7 @@ public class GUICustomerScreen extends JPanel {
 		
 		String fName = user.getFirstName();
 		String lName = user.getLastName();
-		JLabel lblHello = new JLabel("<html>Hello, " + fName + "<br>" + lName + "</html>");
+		JLabel lblHello = new JLabel("<html>Hello,<br>" + fName + " " + lName + "</html>");
 		lblHello.setBounds(380, 22, 89, 46);
 		add(lblHello);
 
@@ -196,7 +197,7 @@ public class GUICustomerScreen extends JPanel {
 	}
 	
 	// departure Leg 1 
-	public void setCboDeptLeg1(List<String> airportList) {
+	public void setCboDeptLeg1(List<Airport> airportList) {
 		populateComboBoxDeptLeg1(airportList);
 	}
 	
@@ -213,7 +214,7 @@ public class GUICustomerScreen extends JPanel {
 		return cboDestLeg1.getSelectedIndex();
 	}
 
-	public void setCboDestLeg1(List<String> airportList) {
+	public void setCboDestLeg1(List<Airport> airportList) {
 		populateComboBoxDestLeg1(airportList);
 	}
 
@@ -231,7 +232,7 @@ public class GUICustomerScreen extends JPanel {
 	}
 
 	// Departure leg 2
-	public void setCboDeptLeg2(List<String> airportList) {
+	public void setCboDeptLeg2(List<Airport> airportList) {
 		populateComboBoxDeptLeg2(airportList);
 	}
 
@@ -244,7 +245,7 @@ public class GUICustomerScreen extends JPanel {
 	}
 	
 	// destination leg 2
-	public void setCboDestLeg2(List<String> airportList) {
+	public void setCboDestLeg2(List<Airport> airportList) {
 		populateComboBoxDestLeg2(airportList);
 	}
 
@@ -321,6 +322,10 @@ public class GUICustomerScreen extends JPanel {
 	public void enableLeg2(boolean enable) {
 		cboDeptLeg2.setEnabled(enable);
 		cboDestLeg2.setEnabled(enable);
+		
+		cboDeptLeg2.setSelectedIndex(-1);
+		cboDestLeg2.setSelectedIndex(-1);
+		
 	}
 
 	public void clearAllCustomer() {
@@ -339,8 +344,8 @@ public class GUICustomerScreen extends JPanel {
 		cboDeptLeg1.setSelectedIndex(0);
 		cboDestLeg1.setSelectedIndex(0);
 		cboSeatType.setSelectedIndex(0);
-		cboDeptLeg2.setSelectedIndex(0);
-		cboDestLeg2.setSelectedIndex(0);
+				
+		enableLeg2(false);
 	}
 
 	// TODO copy code from save, replace these methods with updateCBO methods
@@ -350,11 +355,11 @@ public class GUICustomerScreen extends JPanel {
 	 * 
 	 * @param airportList
 	 */
-	private void populateComboBoxDeptLeg1(List<String> airportList) {
+	private void populateComboBoxDeptLeg1(List<Airport> airportList) {
 
 		if (cboDeptLeg1 != null) {
 			//cboDeptLeg1.removeAllItems();
-			cboDeptLeg1.addItem(defaultItem);
+			//cboDeptLeg1.addItem(defaultItem);
 			for (int i = 0; i < airportList.size(); i++) {
 				cboDeptLeg1.addItem(airportList.get(i));
 			}
@@ -362,14 +367,14 @@ public class GUICustomerScreen extends JPanel {
 
 	}
 
-	private void populateComboBoxDestLeg1(List<String> airportList) {
+	private void populateComboBoxDestLeg1(List<Airport> airportList) {
 
-		if (cboDestLeg1 != null) {
+		if (cboDestLeg1 != null && cboDeptLeg1.getSelectedItem() != null) {
 			cboDestLeg1.removeAllItems();
-			cboDestLeg1.addItem(defaultItem);
+			//cboDestLeg1.addItem(defaultItem);
 			//System.out.println(airportList.get(0));
 			for (int i = 0; i < airportList.size(); i++) {
-				if (airportList.get(i).equals(cboDeptLeg1.getSelectedItem().toString())) {
+				if (airportList.get(i).equals(cboDeptLeg1.getSelectedItem())) {
 					continue;
 				} else {
 					cboDestLeg1.addItem(airportList.get(i));
@@ -379,31 +384,31 @@ public class GUICustomerScreen extends JPanel {
 		}
 	}
 
-	private void populateComboBoxDeptLeg2(List<String> airportList) {
+	private void populateComboBoxDeptLeg2(List<Airport> airportList) {
 
 		if (cboDeptLeg2 != null) {
 			cboDeptLeg2.removeAllItems();
-			cboDeptLeg2.addItem(defaultItem);
+			//cboDeptLeg2.addItem(defaultItem);
 			//boolean one = !getRdbtnOneWaySelected();
 			//boolean two = cboDeptLeg1 != null;
 			//boolean three = cboDestLeg1.getSelectedItem() != null;
 			//boolean four = cboDestLeg1.getSelectedItem().toString().equals(defaultItem);
 			
-			if (!getRdbtnOneWaySelected() && cboDeptLeg1 != null && cboDestLeg1.getSelectedItem() != null && (!cboDestLeg1.getSelectedItem().toString().equals(defaultItem))) {
-				cboDeptLeg2.addItem(cboDestLeg1.getSelectedItem().toString());
+			if (!getRdbtnOneWaySelected() && cboDeptLeg1 != null && cboDestLeg1.getSelectedItem() != null) {
+				cboDeptLeg2.addItem((Airport)cboDestLeg1.getSelectedItem());
 			} 
 		}
 	}
 
-	private void populateComboBoxDestLeg2(List<String> airportList) {
+	private void populateComboBoxDestLeg2(List<Airport> airportList) {
 
 		if (cboDestLeg2 != null) {
 			cboDestLeg2.removeAllItems();
-			cboDestLeg2.addItem(defaultItem);			
+			//cboDestLeg2.addItem(defaultItem);			
 
 			for (int i = 0; i < airportList.size(); i++) {
 				
-				if (!rdbtnOneWay.isSelected() && cboDeptLeg2.getSelectedItem() != null && (!(cboDeptLeg2.getSelectedItem().toString().equals(defaultItem)) && !airportList.get(i).equals(cboDeptLeg2.getSelectedItem().toString()))) {
+				if (!rdbtnOneWay.isSelected() && cboDeptLeg2.getSelectedItem() != null && !airportList.get(i).equals(cboDeptLeg2.getSelectedItem())) {
 					cboDestLeg2.addItem(airportList.get(i));
 				}
 			}

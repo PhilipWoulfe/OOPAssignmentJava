@@ -16,6 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException;
+
+import projFlight.models.Airport;
+import projFlight.models.AirportComparator;
 import projFlight.models.Flight;
 import projFlight.models.User;
 
@@ -90,7 +94,7 @@ public class ReadWriteDB {
 
 	}
 	
-	public static List<String> populateAirportList(List<String> airportList) {
+	public static List<Airport> populateAirportList(List<Airport> airportList) {
 		// TODO Auto-generated method stub
 
 		airportList.clear();
@@ -103,22 +107,21 @@ public class ReadWriteDB {
 			ResultSet results = statement.executeQuery();
 
 			while (results.next()) {
-				String airport = results.getString(1);
+				Airport airport = new Airport();
+				airport.setName(results.getString(1));
 				if (!airport.equals("")) {
 					airportList.add(airport);
 				}
 
 			}
-			
-			Collections.sort(airportList);
-			
+						
 		} catch (SQLException sqlExcept) {
 			sqlExcept.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Error populating airport list", "Warning", 0);
 		} finally {
 			shutdown();
 		}
-		Collections.sort(airportList);
+		Collections.sort(airportList, new AirportComparator());
 		return airportList;
 
 		
@@ -179,9 +182,12 @@ public class ReadWriteDB {
 			statement.setString(2, name);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Airport Succussfully Added.");
-		} catch (SQLException sqlExcept) {
-			sqlExcept.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Error adding airport to database", "Warning", 0);
+		} catch (DerbySQLIntegrityConstraintViolationException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Airport code already in use", "Warning", 0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Message: " + e.getMessage(), "Warning", 0);
 		} finally {
 			shutdown();
 		}
@@ -198,9 +204,9 @@ public class ReadWriteDB {
 			statement.execute();
 			
 			JOptionPane.showMessageDialog(null, "Airport Succussfully Removed.");
-		} catch (SQLException sqlExcept) {
-			sqlExcept.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Error removing airport from database", "Warning", 0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Message: " + e.getMessage(), "Warning", 0);
 		} finally {
 			shutdown();
 		}
@@ -312,9 +318,9 @@ public class ReadWriteDB {
 			// Get a connection
 			conn = DriverManager.getConnection(dbURL);
 			System.gc();
-		} catch (Exception except) {
-			except.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Error opening connection, ensure database exists and no connection is already open", "Warning", 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Message: " + e.getMessage(), "Warning", 0);
 		}
 	}
 	

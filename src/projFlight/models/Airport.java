@@ -22,4 +22,16 @@ public class Airport {
 	public String toString() {
 		return name;
 	}
+	
+
+    @Override
+    public boolean equals(Object obj) {
+       if (!(obj instanceof Airport))
+            return false;
+        if (obj == this)
+            return true;
+
+        Airport rhs = (Airport) obj;
+        return name.equals(rhs.name) && airCode.equals(rhs.airCode);
+    }
 }
