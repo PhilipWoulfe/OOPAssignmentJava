@@ -13,11 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
+
+import java.awt.Font;
 
 import projFlight.Event.GUIMainEvent;
 import projFlight.IO.ReadWriteDB;

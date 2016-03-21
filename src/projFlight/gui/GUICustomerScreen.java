@@ -12,19 +12,18 @@ package projFlight.gui;
 import javax.swing.JPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.util.List;
-
 import javax.swing.JRadioButton;
-import javax.swing.UIManager;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+
+import java.awt.Font;
+
+import java.util.List;
 
 import projFlight.Event.GUIMainEvent;
 import projFlight.models.Airport;
 import projFlight.models.User;
-
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
 
 public class GUICustomerScreen extends JPanel {
 

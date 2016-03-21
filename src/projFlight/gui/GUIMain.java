@@ -13,15 +13,17 @@ import java.awt.image.BufferedImage;
 
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import javax.swing.UIManager;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+
+import java.awt.Color;
+import java.awt.BorderLayout;
 
 import projFlight.Event.GUIMainEvent;
 
@@ -95,7 +97,7 @@ public class GUIMain {
 			String filePath = ".\\images\\WolfLogo.png";
 			myPicture = ImageIO.read(new File(filePath));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 

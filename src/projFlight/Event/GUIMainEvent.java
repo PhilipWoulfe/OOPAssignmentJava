@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 
+import projFlight.IO.PrintText;
 import projFlight.IO.ReadWriteDB;
 import projFlight.gui.*;
 import projFlight.models.Airport;
@@ -65,7 +66,7 @@ public class GUIMainEvent implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		// TODO Auto-generated method stub
+
 		Object source = event.getSource();
 		
 		// if the event is the login button
@@ -191,6 +192,7 @@ public class GUIMainEvent implements ActionListener {
 			// else if print is clicked
 			} else if (confirm.isSourceBtnPrint(source)) {
 				// TODO add print
+				new PrintText(user, f);
 			
 			// exit is clicked
 			} else if (confirm.isSourceBtnExit(source)) {
@@ -286,7 +288,7 @@ public class GUIMainEvent implements ActionListener {
 	 * method to book flights
 	 */
 	private void bookFlights() {
-		// TODO Auto-generated method stub
+
 		int customerDeptLeg1Index = customer.getCboDeptLeg1Index();
 		int customerDestLeg1Index = customer.getCboDeptLeg1Index();
 		int customerDeptLeg2Index = customer.getCboDeptLeg1Index();
