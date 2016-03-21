@@ -26,9 +26,6 @@ import javax.swing.JTable;
 
 public class GUIMaintenanceScreen extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtAddAirport;
 	private JComboBox<Airport> cboAirportRemove;
@@ -43,9 +40,12 @@ public class GUIMaintenanceScreen extends JPanel {
 	private JButton btnHelp;
 
 	/**
-	 * Create the panel.
+	 * Create the panel
+	 * @param event
+	 * @param airportList
 	 */
 	public GUIMaintenanceScreen(GUIMainEvent event, List<Airport> airportList) {
+		
 		super(new BorderLayout(1, 1));
 
 		JTabbedPane tabbedPane = new JTabbedPane();
@@ -65,8 +65,6 @@ public class GUIMaintenanceScreen extends JPanel {
 
 		scrollPane.setViewportView(bookingTable);
 
-		/*JPanel userPanel = new JPanel();
-		tabbedPane.addTab("Users", null, userPanel, null);*/
 
 		JPanel pnlButtons = new JPanel();
 		pnlButtons.setBounds(0, 0, 494, 395);
@@ -82,6 +80,11 @@ public class GUIMaintenanceScreen extends JPanel {
 
 	}
 
+	/**
+	 * Create a text pane
+	 * @param event
+	 * @return
+	 */
 	protected JComponent makeTextPanel(GUIMainEvent event) {
 		JPanel panel = new JPanel(false);
 		panel.setLayout(null);
@@ -144,19 +147,26 @@ public class GUIMaintenanceScreen extends JPanel {
 		return panel;
 	}
 	
+	/**
+	 * populate the remove box from Airport list
+	 * @param airportList
+	 */
 	public void populateAirportRemoveBox(List<Airport> airportList) {
-		// TODO Auto-generated method stub
+		
 		JComboBox<Airport> to = cboAirportRemove;
-
+		
+		// if to exists
 		if (to != null) {
+			
 			to.removeAllItems();
-			//to.addItem("--Select airport to remove--");
-
+			
+			// cycle through array list
 			for (int i = 0; i < airportList.size(); i++) {
+				
+				// add each item
 				to.addItem(airportList.get(i));
 			}
 		}
-
 	}
 
 	

@@ -27,7 +27,8 @@ public class GUILoginScreen extends JPanel {
 	private JButton btnHelp;
 
 	/**
-	 * Create the panel.
+	 * Construct the panel
+	 * @param mainEvent
 	 */
 	public GUILoginScreen(GUIMainEvent mainEvent) {
 
@@ -84,43 +85,81 @@ public class GUILoginScreen extends JPanel {
 		add(btnHelp);
 	}
 
+	/**
+	 * Gets username
+	 * @return String
+	 */
 	public String getUsername() {
 		return tboUsername.getText();
 	}
 
+	/**
+	 * get Password
+	 * @return char[]
+	 */
 	public char[] getPassword() {
 		return passwordField.getPassword();
 	}
 
+	/**
+	 * clears password
+	 */
 	public void clearPassword() {
 		passwordField.setText("");
 	}
 
+	/**
+	 * set username error message
+	 * @param error
+	 */
 	public void setUsernameError(String error) {
 		lblUsernameError.setText(error);
 	}
 
+	/**
+	 * clear username error
+	 */
 	public void clearUsernameError() {
 		lblUsernameError.setText("");
 	}
-
+	
+	/**
+	 * clear password error
+	 */
 	public void clearPasswordError() {
 		lblPasswordError.setText("");
-		;
 	}
-
+	
+	/**
+	 * set passowrd error
+	 */
 	public void setPasswordError() {
 		lblPasswordError.setText("Password cannot be blank");
 	}
 
+	/**
+	 * check if login was source
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean btnLoginIsSource(Object source) {
 		return source == btnLogin;
 	}
 
+	/**
+	 * Check if close is source
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean btnCloseIsSource(Object source) {
 		return source == btnClose;
 	}
 
+	/**
+	 * check if help was source
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return source == btnHelp;
 	}

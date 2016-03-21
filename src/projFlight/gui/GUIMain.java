@@ -43,7 +43,9 @@ public class GUIMain {
 		
 	}
 
-	// The thread controlling changes of panels in the main window.
+	/**
+	 * Thread controls changing the JPanels in the application window 
+	 */
 	private Thread controller = new Thread() {
 		public void run() {
 

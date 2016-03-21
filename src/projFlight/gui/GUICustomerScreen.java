@@ -56,7 +56,6 @@ public class GUICustomerScreen extends JPanel {
 		rdbtnOneWay.setBounds(88, 113, 109, 23);
 		rdbtnOneWay.addActionListener(event);
 		add(rdbtnOneWay);
-		// login.btnOk.addActionListener(event);
 
 		rdbtnReturnsecondLeg = new JRadioButton("Return/Second Leg");
 		rdbtnReturnsecondLeg.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
@@ -87,12 +86,6 @@ public class GUICustomerScreen extends JPanel {
 		cboDeptLeg1.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDeptLeg1.setMaximumRowCount(10);
 		cboDeptLeg1.setBounds(40, 171, 132, 20);
-/*		cboDeptLeg1.removeAllItems();
-		cboDeptLeg1.addItem(defaultItem);
-		// TODO move to event
-		for (int i = 0; i < airportList.size(); i++) {
-			cboDeptLeg1.addItem(airportList.get(i));
-		}*/
 		cboDeptLeg1.addActionListener(event);
 		add(cboDeptLeg1);
 
@@ -100,18 +93,13 @@ public class GUICustomerScreen extends JPanel {
 		cboDestLeg1.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboDestLeg1.setMaximumRowCount(10);
 		cboDestLeg1.setBounds(194, 171, 126, 20);
-		/*cboDestLeg1.removeAllItems();
-		// TODO move to event?
-		cboDestLeg1.addItem(defaultItem);*/
 		cboDestLeg1.addActionListener(event);
 		add(cboDestLeg1);
 
 		cboSeatType = new JComboBox<String>();
 		cboSeatType.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
 		cboSeatType.setBounds(343, 171, 115, 20);
-		// TODO move to event?
 		cboSeatType.addItem(defaultItem);
-		// TODO make object?
 		cboSeatType.addItem("Economy");
 		cboSeatType.addItem("Business");
 		cboSeatType.addItem("First Class");
@@ -136,8 +124,6 @@ public class GUICustomerScreen extends JPanel {
 		cboDeptLeg2.setEnabled(false);
 		cboDeptLeg2.setBounds(40, 227, 132, 20);
 		cboDeptLeg2.removeAllItems();
-		// TODO move to event?
-		//cboDeptLeg2.addItem(defaultItem);
 		cboDeptLeg2.addActionListener(event);
 		add(cboDeptLeg2);
 
@@ -147,8 +133,6 @@ public class GUICustomerScreen extends JPanel {
 		cboDestLeg2.setEnabled(false);
 		cboDestLeg2.setBounds(194, 227, 126, 20);
 		cboDestLeg2.removeAllItems();
-		// TODO move to event?
-		//cboDestLeg2.addItem(defaultItem);
 		cboDestLeg2.addActionListener(event);
 		add(cboDestLeg2);
 
@@ -201,140 +185,270 @@ public class GUICustomerScreen extends JPanel {
 		add(btnHelp);
 	}
 
+	
+	
+	// RDB One Way
 	/**
-	 * getter and setter methods
+	 * get one way selected
+	 * @return boolean
 	 */
-
-	// Radio button
 	public boolean getRdbtnOneWaySelected() {
 		return rdbtnOneWay.isSelected();
 	}
-
+	
+	/**
+	 * set one way selected
+	 */
 	public void setRdbtnOneWaySelected() {
 		rdbtnOneWay.setSelected(true);
 	}
 	
-	// departure Leg 1 
+	
+	//CBO Dept 1
+	/**
+	 * set dept leg 1 from airport list
+	 * @param airportList
+	 */
 	public void setCboDeptLeg1(List<Airport> airportList) {
 		populateComboBoxDeptLeg1(airportList);
 	}
 	
+	/** 
+	 * get current selected item from dept leg 1
+	 * @return String
+	 */
 	public String getCboDeptLeg1Selected() {
 		return cboDeptLeg1.getSelectedItem().toString();
 	}
 
+	/**
+	 * get dept leg 1 selected index
+	 * @return int
+	 */
 	public int getCboDeptLeg1Index() {
 		return cboDeptLeg1.getSelectedIndex();
 	}
 	
+	
 	// Destination leg 1
+	/**
+	 * get Dest 1 current indec
+	 * @return int
+	 */
 	public int getCboDestLeg1Index() {
 		return cboDestLeg1.getSelectedIndex();
 	}
-
+	
+	/**
+	 * set Dest 1 from airportlist
+	 * @param airportList
+	 */
 	public void setCboDestLeg1(List<Airport> airportList) {
 		populateComboBoxDestLeg1(airportList);
 	}
 
+	/**
+	 * get dest 1 current item
+	 * @return String
+	 */
 	public String getCboDestLeg1Selected() {
 		return cboDestLeg1.getSelectedItem().toString();
 	}
 	
 	// seat type
-	public void setCboSeatType(List<String> airportList) {
-		;
-	}
-
+	/**
+	 * get current selected seat type
+	 * @return String
+	 */
 	public String getCboSeatType() {
 		return cboSeatType.getSelectedItem().toString();
 	}
 	
+	/**
+	 * get current seat type index
+	 * @return int
+	 */
 	public int getCboSeatTypeIndex() {
 		return cboSeatType.getSelectedIndex();
 	}
 
+	
 	// Departure leg 2
+	/**
+	 * set dept 2 from airport list
+	 * @param airportList
+	 */
 	public void setCboDeptLeg2(List<Airport> airportList) {
 		populateComboBoxDeptLeg2(airportList);
 	}
 
+	/**
+	 * get selected dept 2
+	 * @return String
+	 */
 	public String getCboDeptLeg2Selected() {
 		return cboDeptLeg2.getSelectedItem().toString();
 	}
 	
+	/**
+	 * get Dept2 current index
+	 * @return int
+	 */
 	public int getCboDeptLeg2Index() {
 		return cboDeptLeg2.getSelectedIndex();
 	}
 	
+	
 	// destination leg 2
+	/**
+	 * set dest 2 from airportlist
+	 * @param airportList
+	 */
 	public void setCboDestLeg2(List<Airport> airportList) {
 		populateComboBoxDestLeg2(airportList);
 	}
 
+	/**
+	 * get selected item from dest 2
+	 * @return String
+	 */
 	public String getCboDestLeg2Selected() {
 		return cboDestLeg2.getSelectedItem().toString();
 	}
 	
+	/**
+	 * get selected index from dest 2
+	 * @return int
+	 */
 	public int getCboDestLeg2Index() {
 		return cboDestLeg2.getSelectedIndex();
 	}
 	
+	
 	// insurance
+	/**
+	 * set insurance selected
+	 * @param b
+	 */
 	public void setChkbxInsurance(boolean b) {
 		chkbxInsurance.setSelected(b);
 	}
-
+	
+	/**
+	 * get insurance selected
+	 * @return boolean
+	 */
 	public boolean getChkbxInsurance() {
 		return chkbxInsurance.isSelected();
 	}
 
+	
+	//Methods to check if object is source
+	
 	/**
-	 * Methods to check if object is source
+	 * if one way selected
+	 * @param source
+	 * @return boolean
 	 */
 	public boolean isSourceRdbtnOneWay(Object source) {
 		return rdbtnOneWay == source;
 	}
 
+	/**
+	 * if two way selected
+	 * @param source
+	 * @return bolean
+	 */
 	public boolean isSourceRdbtnReturnSecondLeg(Object source) {
 		return rdbtnReturnsecondLeg == source;
 	}
 
+	/**
+	 * if dept 1 changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceCboDeptLeg1(Object source) {
 		return cboDeptLeg1 == source;
 	}
 
+	/**
+	 * if dest 1 changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceCboDestLeg1(Object source) {
 		return cboDestLeg1 == source;
 	}
 
+	/**
+	 * if eat type changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceCboSeatType(Object source) {
 		return cboSeatType == source;
 	}
 
+	/**
+	 * if dept 2 changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceCboDeptLeg2(Object source) {
 		return cboDeptLeg2 == source;
 	}
 	
+	/**
+	 * if dest 2 changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceCboDestLeg2(Object source) {
 		return cboDestLeg2 == source;
 	}
 
+	/**
+	 * if insurance changed
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceChkbxInsurance(Object source) {
 		return chkbxInsurance == source;
 	}
 
+	/** 
+	 * if book flights clicked
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceBtnBookFlights(Object source) {
 		return btnBookFlights == source;
 	}
 
+	/**
+	 * if clear clicked
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceBtnClear(Object source) {
 		return btnClear == source;
 	}
 
+	/**
+	 * if logout clicked
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceBtnLogout(Object source) {
 		return btnLogout == source;
 	}
 	
+	/**
+	 * if help clicked
+	 * @param source
+	 * @return boolean
+	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return btnHelp == source;
 	}
@@ -350,17 +464,18 @@ public class GUICustomerScreen extends JPanel {
 		cboDestLeg2.setEnabled(enable);
 		
 		cboDeptLeg2.setSelectedIndex(-1);
-		cboDestLeg2.setSelectedIndex(-1);
-		
+		cboDestLeg2.setSelectedIndex(-1);		
 	}
 
+	/**
+	 * clear all customers
+	 */
 	public void clearAllCustomer() {
 
 		setRdbtnOneWaySelected();
 		setChkbxInsurance(true);
 		resetComboBoxes();
 		enableLeg2(false);
-
 	}
 
 	/**
@@ -374,70 +489,96 @@ public class GUICustomerScreen extends JPanel {
 		enableLeg2(false);
 	}
 
-	// TODO copy code from save, replace these methods with updateCBO methods
-	// from GUI mainevent
 	/**
-	 * populate airport combo boxes
+	 * populate dept 1 combo boxes
 	 * 
 	 * @param airportList
 	 */
 	private void populateComboBoxDeptLeg1(List<Airport> airportList) {
-
+		
+		// if it exists
 		if (cboDeptLeg1 != null) {
-			//cboDeptLeg1.removeAllItems();
-			//cboDeptLeg1.addItem(defaultItem);
+			
+			// add every item from airport list
 			for (int i = 0; i < airportList.size(); i++) {
 				cboDeptLeg1.addItem(airportList.get(i));
 			}
 		}
-
 	}
 
+	/**
+	 * populate dest 1 combo
+	 * @param airportList
+	 */
 	private void populateComboBoxDestLeg1(List<Airport> airportList) {
-
+		
+		// if it exists and the first combo doesn't have a null value
 		if (cboDestLeg1 != null && cboDeptLeg1.getSelectedItem() != null) {
+			
 			cboDestLeg1.removeAllItems();
-			//cboDestLeg1.addItem(defaultItem);
-			//System.out.println(airportList.get(0));
+			
+			// cycle through airport list
 			for (int i = 0; i < airportList.size(); i++) {
+				
+				// if the current airport equals dept 1 or the default items
 				if (airportList.get(i).equals(cboDeptLeg1.getSelectedItem()) && !airportList.get(i).toString().equals(" -Select Airport- ")) {
+					
+					// skip
 					continue;
+					
+				// else	
 				} else {
+					
+					// add to combo dest 1
 					cboDestLeg1.addItem(airportList.get(i));
 				}
 			}
-
 		}
 	}
-
+	
+	/**
+	 * populate dept 2 combo
+	 * @param airportList
+	 */
 	private void populateComboBoxDeptLeg2(List<Airport> airportList) {
-
+		
+		// if exists
 		if (cboDeptLeg2 != null) {
-			cboDeptLeg2.removeAllItems();
-			//cboDeptLeg2.addItem(defaultItem);
-			//boolean one = !getRdbtnOneWaySelected();
-			//boolean two = cboDeptLeg1 != null;
-			//boolean three = cboDestLeg1.getSelectedItem() != null;
-			//boolean four = cboDestLeg1.getSelectedItem().toString().equals(defaultItem);
 			
+			cboDeptLeg2.removeAllItems();
+			
+			// if one wat not selected AND it exists AND current items from destLeg 1 exists
 			if (!getRdbtnOneWaySelected() && cboDeptLeg1 != null && cboDestLeg1.getSelectedItem() != null ) {
+				
+				// Add current item from dest 1
 				cboDeptLeg2.addItem((Airport)cboDestLeg1.getSelectedItem());
 			} 
 		}
 	}
 
+	/**
+	 * populate dest 2
+	 * @param airportList
+	 */
 	private void populateComboBoxDestLeg2(List<Airport> airportList) {
-
+		
+		// if this combo exists 
 		if (cboDestLeg2 != null) {
+			
 			cboDestLeg2.removeAllItems();
-			//cboDestLeg2.addItem(defaultItem);			
-
+			
+			// cycle through airports
 			for (int i = 0; i < airportList.size(); i++) {
-
+				
+				// if current airport is the same as dept 2 OR the default item
 				if (airportList.get(i).equals(cboDeptLeg2.getSelectedItem()) && !airportList.get(i).toString().equals(" -Select Airport- ")) {
-					continue;
 					
+					// Skip
+					continue;
+				
+				// otherwise
 				} else {
+					// stick it in dest 2
 					cboDestLeg2.addItem(airportList.get(i));
 				}
 			}

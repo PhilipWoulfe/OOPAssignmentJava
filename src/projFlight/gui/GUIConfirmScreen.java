@@ -20,9 +20,8 @@ public class GUIConfirmScreen extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private JTextField txtName;
-
-
 	private JTextField txtSeat;
 	private JTextField txtLeg1;
 	private JTextField txtLeg2;
@@ -32,19 +31,23 @@ public class GUIConfirmScreen extends JPanel {
 	private JButton btnConfirm;
 	private JButton btnPrint;
 	private JButton btnExit;
+	private JButton btnHelp;
+	
 	private JLabel lblName;
 	private JLabel lblSeatType;
 	private JLabel lblLeg1;
 	private JLabel lblLeg2;
 	private JLabel lblInsurance;
 	private JLabel lblBookingReference;
-	private JButton btnHelp;
-
-
+	
 	/**
-	 * Create the panel.
+	 * Create the panel
+	 * @param event
+	 * @param u
+	 * @param flight
 	 */
 	public GUIConfirmScreen(GUIMainEvent event, User u, Flight flight) {
+		
 		setLayout(null);
 
 		btnConfirm = new JButton("Confirm");
@@ -152,12 +155,17 @@ public class GUIConfirmScreen extends JPanel {
 		setTxtName(u.getFirstName() + " " + u.getLastName());
 
 		setTxtLeg1(ReadWriteDB.getCodeForAirport(flight.getDeptLeg1Airport()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg1Airport()));
+		
+		// if there is a second eg in the flight
 		if (!flight.getDeptLeg2Airport().equals("")) {
+			
+			// set from and to airport codes
 			setTxtLeg2(ReadWriteDB.getCodeForAirport(flight.getDeptLeg2Airport()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg2Airport()));
 		}
 		
 		setTxtSeat(flight.getLeg1SeatType());
 		setTxtBookRef(flight.getBookingRef() + "");
+		
 		
 		if (flight.isHasInsurance()) {
 			setTxtInsurance("Yes");
@@ -166,73 +174,150 @@ public class GUIConfirmScreen extends JPanel {
 		}
 	}
 	
+	/**
+	 * get name
+	 * @return
+	 */
 	public JTextField getTxtName() {
 		return txtName;
 	}
 
+	/** 
+	 * set name
+	 * @param name
+	 */
 	public void setTxtName(String name) {
 		txtName.setText(name);
 	}
 
+	/**
+	 *  get Seat
+	 * @return
+	 */
 	public String getTxtSeat() {
 		return txtSeat.getText();
 	}
 
+	/**
+	 * set seat
+	 * @param seatType
+	 */
 	public void setTxtSeat(String seatType) {
 		this.txtSeat.setText(seatType);;
 	}
 
+	/**
+	 * get leg 1
+	 * @return
+	 */
 	public String getTxtLeg1() {
 		return txtLeg1.getText();
 	}
-
+	
+	/**
+	 * set leg 1
+	 * @param leg1
+	 */
 	public void setTxtLeg1(String leg1) {
 		this.txtLeg1.setText(leg1);
 	}
 
+	/**
+	 * get leg 2
+	 * @return
+	 */
 	public String getTxtLeg2() {
 		return txtLeg2.getText();
 	}
 
+	/** 
+	 * set leg 2
+	 * @param leg2
+	 */
 	public void setTxtLeg2(String leg2) {
 		this.txtLeg2.setText(leg2);;
 	}
 
+	/**
+	 * get insurance
+	 * @return
+	 */
 	public String getTxtInsurance() {
 		return txtInsurance.getText();
 	}
 
+	/**
+	 * set insurance
+	 * @param insurance
+	 */
 	public void setTxtInsurance(String insurance) {
 		this.txtInsurance.setText(insurance);
 	}
 
+	/**
+	 * get booking ref
+	 * @return
+	 */
 	public String getTxtBookRef() {
 		return txtBookRef.getText();
 	}
 
+	/**
+	 * set booking ref
+	 * @param bookRef
+	 */
 	public void setTxtBookRef(String bookRef) {
 		this.txtBookRef.setText(bookRef);
 	}
 
+	/**
+	 * confirm clicked
+	 * @param source
+	 * @return
+	 */
 	public boolean isSourceBtnConfirm(Object source) {
 		return source == btnConfirm;
 	}
 	
+	/**
+	 * enable/disable confirm button
+	 * @param enabled
+	 */
 	public void enableBtnConfirm(boolean enabled) {
 		btnConfirm.setEnabled(enabled);
 	}
 	
+	/**
+	 * print clicked
+	 * @param source
+	 * @return
+	 */
 	public boolean isSourceBtnPrint(Object source) {
 		return source == btnPrint;
 	}
 	
+	/**
+	 * exit clicked
+	 * @param source
+	 * @return
+	 */
 	public boolean isSourceBtnExit(Object source) {
 		return source == btnExit;
 	}
 	
+	/**
+	 * help clicked
+	 * @param source
+	 * @return
+	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return source == btnHelp;
 	}
+	
+	/**
+	 * enable/disable leg 2
+	 * @param enabled
+	 */
 	public void enableLeg2(boolean enabled) {
 		txtLeg2.setEnabled(enabled);
 		lblLeg2.setEnabled(enabled);
