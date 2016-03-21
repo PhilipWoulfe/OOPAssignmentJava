@@ -42,6 +42,7 @@ public class GUICustomerScreen extends JPanel {
 	private JButton btnClear;
 	private JButton btnLogout;
 	private String defaultItem = "--Select Airport--";
+	private JButton btnHelp;
 
 
 	public GUICustomerScreen(GUIMainEvent event, User user) {
@@ -180,6 +181,23 @@ public class GUICustomerScreen extends JPanel {
 		JLabel lblHello = new JLabel("<html>Hello,<br>" + fName + " " + lName + "</html>");
 		lblHello.setBounds(380, 22, 89, 46);
 		add(lblHello);
+		
+		JComboBox<String> cboSeatLeg2 = new JComboBox<String>();
+		cboSeatLeg2.setEnabled(false);
+		cboSeatLeg2.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
+		cboSeatLeg2.setBounds(343, 227, 115, 20);
+		add(cboSeatLeg2);
+		
+		JLabel label = new JLabel("Seat Type");
+		label.setEnabled(false);
+		label.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 11));
+		label.setBounds(343, 202, 67, 14);
+		add(label);
+		
+		btnHelp = new JButton("Help");
+		btnHelp.setBounds(398, 300, 60, 23);
+		btnHelp.addActionListener(event);
+		add(btnHelp);
 
 	}
 
@@ -311,6 +329,10 @@ public class GUICustomerScreen extends JPanel {
 
 	public boolean isSourceBtnLogout(Object source) {
 		return btnLogout == source;
+	}
+	
+	public boolean isSourceBtnHelp(Object source) {
+		return btnHelp == source;
 	}
 
 	/**

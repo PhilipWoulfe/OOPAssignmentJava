@@ -40,6 +40,7 @@ public class GUIMaintenanceScreen extends JPanel {
 	private JButton btnLogout;
 	private JTable bookingTable;
 	private JScrollPane scrollPane;
+	private JButton btnHelp;
 
 	/**
 	 * Create the panel.
@@ -70,6 +71,10 @@ public class GUIMaintenanceScreen extends JPanel {
 		JPanel pnlButtons = new JPanel();
 		pnlButtons.setBounds(0, 0, 494, 395);
 		add(pnlButtons, BorderLayout.SOUTH);
+		
+		btnHelp = new JButton("Help");
+		btnHelp.addActionListener(event);
+		pnlButtons.add(btnHelp);
 		
 		btnLogout = new JButton("Logout");
 		pnlButtons.add(btnLogout);
@@ -212,5 +217,9 @@ public class GUIMaintenanceScreen extends JPanel {
 	
 	public void setScrollPane(JTable table) {
 		scrollPane.setViewportView(table);
+	}
+	
+	public boolean isSourceBtnHelp(Object source) {
+		return btnHelp == source;
 	}
 }

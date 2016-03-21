@@ -37,6 +37,7 @@ public class GUIConfirmScreen extends JPanel {
 	private JLabel lblLeg2;
 	private JLabel lblInsurance;
 	private JLabel lblBookingReference;
+	private JButton btnHelp;
 
 
 	/**
@@ -142,8 +143,13 @@ public class GUIConfirmScreen extends JPanel {
 		txtBookRef.setBounds(312, 313, 113, 23);
 		add(txtBookRef);
 		
+		btnHelp = new JButton("Help");
+		btnHelp.setBounds(365, 101, 60, 23);
+		btnHelp.addActionListener(event);
+		add(btnHelp);
+		
 		setTxtName(u.getFirstName() + " " + u.getLastName());
-		String temp = flight.getLeg1SeatType();
+
 		setTxtLeg1(ReadWriteDB.getCodeForAirport(flight.getDeptLeg1Aircode()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg1AirCode()));
 		if (!flight.getDeptLeg2AirCode().equals("")) {
 			setTxtLeg2(flight.getDeptLeg2AirCode() + "To " + flight.getDestLeg2AirCode());
@@ -225,6 +231,9 @@ public class GUIConfirmScreen extends JPanel {
 		return source == btnExit;
 	}
 	
+	public boolean isSourceBtnHelp(Object source) {
+		return source == btnHelp;
+	}
 	public void enableLeg2(boolean enabled) {
 		txtLeg2.setEnabled(enabled);
 		lblLeg2.setEnabled(enabled);

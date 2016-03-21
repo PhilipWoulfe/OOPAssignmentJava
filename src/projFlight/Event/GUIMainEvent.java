@@ -4,6 +4,8 @@
 package projFlight.Event;
 
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 
 import projFlight.IO.ReadWriteDB;
@@ -146,12 +149,17 @@ public class GUIMainEvent implements ActionListener {
 
 		} else if (maintain != null && maintain.isSourceBtnAddAirport(source)) {
 			if (maintain.getTxtAddAirport().length() < 50) {
-				String aircode = maintain.getCboCode1() + "" + maintain.getCboCode2() + "" + maintain.getCboCode3();
-				String name = maintain.getTxtAddAirport();
+				if (maintain.getTxtAddAirport().equals("")) {
+					JOptionPane.showMessageDialog(null, "Airport must have a name");
+				} else {
+					String aircode = maintain.getCboCode1() + "" + maintain.getCboCode2() + "" + maintain.getCboCode3();
+					String name = maintain.getTxtAddAirport();
+					
+					ReadWriteDB.addAirportToDB(aircode, name);
+					ReadWriteDB.populateAirportList(airportList);
+					maintain.populateAirportRemoveBox(airportList);
+				}
 				
-				ReadWriteDB.addAirportToDB(aircode, name);
-				ReadWriteDB.populateAirportList(airportList);
-				maintain.populateAirportRemoveBox(airportList);
 			} else {
 				JOptionPane.showMessageDialog(null,  "Airport name must be less than 50 characters.");
 				maintain.setTxtAddAirport("");
@@ -166,6 +174,17 @@ public class GUIMainEvent implements ActionListener {
 			gui.addLogo(login);
 			login.clearPassword();
 			maintain = null;
+		} else if ((login != null && login.isSourceBtnHelp(source)) || (customer != null && customer.isSourceBtnHelp(source)) || (confirm != null && confirm.isSourceBtnHelp(source)) || (maintain != null && maintain.isSourceBtnHelp(source))) {
+			if (Desktop.isDesktopSupported()) {
+			    try {
+			    	String filePath = ".\\images\\HelpFile.pdf";
+			        File myFile = new File(filePath);
+			        Desktop.getDesktop().open(myFile);
+			    } catch (IOException ex) {
+			        // no application registered for PDFs
+			    	JOptionPane.showMessageDialog(null,  "No application registered for reading PDF files");
+			    }
+			}
 		}
 	}
 
@@ -216,7 +235,7 @@ public class GUIMainEvent implements ActionListener {
 		f.setUserID(user.getUserID());
 		f.setDeptLeg1Aircode(customer.getCboDeptLeg1Selected());
 		f.setDestLeg1AirCode(customer.getCboDestLeg1Selected());
-		if (customer.getCboDeptLeg1Index() != 0) {
+		if (customer.getCboDeptLeg2Index() != -1) {
 			f.setDeptLeg2AirCode(customer.getCboDeptLeg2Selected());
 			f.setDestLeg2AirCode(customer.getCboDestLeg2Selected());
 		} else {

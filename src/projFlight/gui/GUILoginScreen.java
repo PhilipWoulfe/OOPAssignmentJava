@@ -23,6 +23,7 @@ public class GUILoginScreen extends JPanel {
 	private JPasswordField passwordField;
 	private JLabel lblUsernameError;
 	private JLabel lblPasswordError;
+	private JButton btnHelp;
 	
 	/**
 	 * Create the panel.
@@ -75,6 +76,11 @@ public class GUILoginScreen extends JPanel {
 		lblPasswordError.setForeground(Color.RED);
 		lblPasswordError.setBounds(184, 296, 241, 14);
 		add(lblPasswordError);
+		
+		btnHelp = new JButton("Help");
+		btnHelp.setBounds(85, 337, 60, 23);
+		btnHelp.addActionListener(mainEvent);
+		add(btnHelp);
 
 	}
 
@@ -112,5 +118,9 @@ public class GUILoginScreen extends JPanel {
 	
 	public boolean btnCloseIsSource(Object source) {
 		return source == btnClose;
+	}
+	
+	public boolean isSourceBtnHelp(Object source) {
+		return source == btnHelp;
 	}
 }
