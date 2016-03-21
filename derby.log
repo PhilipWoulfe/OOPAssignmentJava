@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Mon Mar 21 15:15:20 GMT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-99be-9ec0-00000d9d36a8 
-on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@4e0e2f2a 
-Loaded from file:/C:/Users/blue7/Downloads/db-derby-10.12.1.1-lib/lib/derby.jar
+Mon Mar 21 18:25:52 GMT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-9a6d-11a9-000004eec8c0 
+on database directory C:\Apache\db-derby-10.12.1.1-bin\bin\FlightDatabase with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/E:/Downloads/db-derby-10.12.1.1-lib/db-derby-10.12.1.1-lib/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_73-b02
-user.dir=C:\Users\blue7\Documents\OOPAssignmentJava-master
-os.name=Windows 7
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Users\Phil\workspace2\workspace\projFlight
+os.name=Windows 8.1
 os.arch=amd64
-os.version=6.1
+os.version=6.3
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

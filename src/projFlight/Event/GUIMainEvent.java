@@ -106,6 +106,7 @@ public class GUIMainEvent implements ActionListener {
 				} else {
 					// warn bad username password
 					login.setUsernameError("Invalid username or password");
+					login.clearPassword();
 				}
 				
 			}
@@ -153,7 +154,7 @@ public class GUIMainEvent implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Airport must have a name");
 				} else {
 					String aircode = maintain.getCboCode1() + "" + maintain.getCboCode2() + "" + maintain.getCboCode3();
-					String name = maintain.getTxtAddAirport();
+					String name = maintain.getTxtAddAirport().trim();
 					
 					ReadWriteDB.addAirportToDB(aircode, name);
 					ReadWriteDB.populateAirportList(airportList);
@@ -166,9 +167,13 @@ public class GUIMainEvent implements ActionListener {
 			}
 		} else if (maintain != null && maintain.isSourceBtnRemove(source)) {
 			// remove airport from db
-			ReadWriteDB.removeAirportFromDB(maintain.getCboAirportRemove().toString());
-			ReadWriteDB.populateAirportList(airportList);
-			maintain.populateAirportRemoveBox(airportList);
+			if (maintain.getCboAirportRemoveIndex() == 0) {
+				JOptionPane.showMessageDialog(null, "Cannot remove default option");
+			} else {
+				ReadWriteDB.removeAirportFromDB(maintain.getCboAirportRemove().toString());
+				ReadWriteDB.populateAirportList(airportList);
+				maintain.populateAirportRemoveBox(airportList);
+			}
 		}  else if (maintain != null && maintain.isSourceBtnLogout(source)) {
 			gui.changeScreens(gui.getFrame(), maintain, login);
 			gui.addLogo(login);
@@ -201,10 +206,10 @@ public class GUIMainEvent implements ActionListener {
 		int customerDestLeg1Index = customer.getCboDeptLeg1Index();
 		int customerDeptLeg2Index = customer.getCboDeptLeg1Index();
 		int customerDestLeg2Index = customer.getCboDeptLeg1Index();
-		int customerSeatTypeIndex = customer.getCboDeptLeg1Index();
+		int customerSeatTypeIndex = customer.getCboSeatTypeIndex();
 		
 		if (customer.getRdbtnOneWaySelected()) {
-			if (customerDeptLeg1Index == -1 || customerDestLeg1Index == -1 || customerSeatTypeIndex == 0) {
+			if (customerDeptLeg1Index == 0 || customerDestLeg1Index == 0 || customerSeatTypeIndex == 0) {
 				JOptionPane.showMessageDialog(null, "Please select all airports and seat type");
 			} else {
 				confirm = new GUIConfirmScreen(this, user, createFlight());
@@ -215,8 +220,8 @@ public class GUIMainEvent implements ActionListener {
 
 			}
 		} else {
-			if (customerDeptLeg1Index == -1 || customerDestLeg1Index == -1 || customerDeptLeg2Index == 0
-					|| customerDestLeg2Index == -1 || customerSeatTypeIndex == -1) {
+			if (customerDeptLeg1Index == 0 || customerDestLeg1Index == 0 || customerDeptLeg2Index == 0
+					|| customerDestLeg2Index == 0 || customerSeatTypeIndex == 0) {
 				JOptionPane.showMessageDialog(null, "Please select all airports and seat type");
 			} else {
 				confirm = new GUIConfirmScreen(this, user, createFlight());
@@ -233,22 +238,23 @@ public class GUIMainEvent implements ActionListener {
 		
 		f.setBookingRef(ReadWriteDB.getNextBookingRef());
 		f.setUserID(user.getUserID());
-		f.setDeptLeg1Aircode(customer.getCboDeptLeg1Selected());
-		f.setDestLeg1AirCode(customer.getCboDestLeg1Selected());
+		f.setDeptLeg1Airport(customer.getCboDeptLeg1Selected());
+		f.setDestLeg1Airport(customer.getCboDestLeg1Selected());
 		if (customer.getCboDeptLeg2Index() != -1) {
-			f.setDeptLeg2AirCode(customer.getCboDeptLeg2Selected());
-			f.setDestLeg2AirCode(customer.getCboDestLeg2Selected());
+			f.setDeptLeg2Airport(customer.getCboDeptLeg2Selected());
+			f.setDestLeg2Airport(customer.getCboDestLeg2Selected());
 		} else {
-			f.setDeptLeg2AirCode("");
-			f.setDestLeg2AirCode("");
+			f.setDeptLeg2Airport("");
+			f.setDestLeg2Airport("");
 		}
 		f.setLeg1SeatType(customer.getCboSeatType());
 		f.setHasInsurance(customer.getChkbxInsurance());
 		
+		
 		return f;
 	}
 
-
+	
 
 	public GUILoginScreen getLogin() {
 		return login;

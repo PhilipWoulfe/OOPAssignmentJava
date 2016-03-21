@@ -30,7 +30,6 @@ public class GUIMain {
 	public static void main(String[] args) {
 		GUIMain window = new GUIMain();
 		window.frame.setVisible(true);
-		setLookAndFeel();
 	}
 
 	/**
@@ -66,6 +65,7 @@ public class GUIMain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.BLUE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		frame.setBounds(100, 100, 503, 476);
@@ -74,7 +74,7 @@ public class GUIMain {
 	}
 
 	/**
-	 * 
+	 * Add a logo to the input panel
 	 * @param panel
 	 */
 	public void addLogo(JPanel panel) {
@@ -93,6 +93,13 @@ public class GUIMain {
 
 	}
 	
+	/**
+	 * Change remove remove from mainFraim and add add
+	 * @param mainFrame
+	 * @param remove
+	 * @param add
+	 */
+	
 	public void changeScreens(JFrame mainFrame, JPanel remove, JPanel add) {
 		mainFrame.getContentPane().remove(remove);
 		mainFrame.repaint();
@@ -102,15 +109,11 @@ public class GUIMain {
 		mainFrame.revalidate();
 	}
 	
+	/**
+	 * getter method for frame
+	 * @return JFrame
+	 */
 	public JFrame getFrame() {
 		return this.frame;
-	}
-	// method to set the look and feel of the GUI
-	private static void setLookAndFeel() {
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		} catch (Exception exc) {
-			// ignore error
-		}
 	}
 }

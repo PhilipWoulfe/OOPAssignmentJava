@@ -95,7 +95,7 @@ public class GUIMaintenanceScreen extends JPanel {
 		panel.add(cboAirportRemove);
 
 		btnRemove = new JButton("Remove");
-		btnRemove.setBounds(344, 81, 89, 33);
+		btnRemove.setBounds(325, 81, 108, 33);
 		btnRemove.addActionListener(event);
 		panel.add(btnRemove);
 
@@ -118,7 +118,7 @@ public class GUIMaintenanceScreen extends JPanel {
 		panel.add(lblAirportName);
 
 		btnAddAirport = new JButton("Add Airport");
-		btnAddAirport.setBounds(344, 284, 89, 33);
+		btnAddAirport.setBounds(325, 284, 108, 33);
 		btnAddAirport.addActionListener(event);
 		panel.add(btnAddAirport);
 
@@ -171,6 +171,10 @@ public class GUIMaintenanceScreen extends JPanel {
 
 	public String getCboAirportRemove() {
 		return cboAirportRemove.getSelectedItem().toString();
+	}
+	
+	public int getCboAirportRemoveIndex() {
+		return cboAirportRemove.getSelectedIndex();
 	}
 
 	public String getCboCode1() {

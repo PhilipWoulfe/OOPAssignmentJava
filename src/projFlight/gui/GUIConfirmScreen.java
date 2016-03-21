@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 import projFlight.Event.GUIMainEvent;
 import projFlight.IO.ReadWriteDB;
@@ -150,9 +151,9 @@ public class GUIConfirmScreen extends JPanel {
 		
 		setTxtName(u.getFirstName() + " " + u.getLastName());
 
-		setTxtLeg1(ReadWriteDB.getCodeForAirport(flight.getDeptLeg1Aircode()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg1AirCode()));
-		if (!flight.getDeptLeg2AirCode().equals("")) {
-			setTxtLeg2(flight.getDeptLeg2AirCode() + "To " + flight.getDestLeg2AirCode());
+		setTxtLeg1(ReadWriteDB.getCodeForAirport(flight.getDeptLeg1Airport()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg1Airport()));
+		if (!flight.getDeptLeg2Airport().equals("")) {
+			setTxtLeg2(ReadWriteDB.getCodeForAirport(flight.getDeptLeg2Airport()) + " To " + ReadWriteDB.getCodeForAirport(flight.getDestLeg2Airport()));
 		}
 		
 		setTxtSeat(flight.getLeg1SeatType());
@@ -163,8 +164,6 @@ public class GUIConfirmScreen extends JPanel {
 		} else {
 			setTxtInsurance("No");
 		}
-		
-
 	}
 	
 	public JTextField getTxtName() {
@@ -238,6 +237,4 @@ public class GUIConfirmScreen extends JPanel {
 		txtLeg2.setEnabled(enabled);
 		lblLeg2.setEnabled(enabled);
 	}
-	
-
 }

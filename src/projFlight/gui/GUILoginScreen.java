@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 import projFlight.Event.GUIMainEvent;
 
@@ -16,7 +17,7 @@ public class GUILoginScreen extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnLogin;
 	private JButton btnClose;
 	private JTextField tboUsername;
@@ -24,12 +25,12 @@ public class GUILoginScreen extends JPanel {
 	private JLabel lblUsernameError;
 	private JLabel lblPasswordError;
 	private JButton btnHelp;
-	
+
 	/**
 	 * Create the panel.
 	 */
 	public GUILoginScreen(GUIMainEvent mainEvent) {
-		
+
 		setLayout(null);
 
 		JLabel lblUsername = new JLabel("Username");
@@ -58,7 +59,7 @@ public class GUILoginScreen extends JPanel {
 		btnLogin.setBounds(184, 330, 109, 35);
 		btnLogin.addActionListener(mainEvent);
 		add(btnLogin);
-				
+
 		btnClose = new JButton("Close");
 		btnClose.setFont(new Font("Aharoni", Font.BOLD | Font.ITALIC, 18));
 		btnClose.setBounds(306, 330, 109, 35);
@@ -76,50 +77,50 @@ public class GUILoginScreen extends JPanel {
 		lblPasswordError.setForeground(Color.RED);
 		lblPasswordError.setBounds(184, 296, 241, 14);
 		add(lblPasswordError);
-		
+
 		btnHelp = new JButton("Help");
 		btnHelp.setBounds(85, 337, 60, 23);
 		btnHelp.addActionListener(mainEvent);
 		add(btnHelp);
-
 	}
 
 	public String getUsername() {
 		return tboUsername.getText();
 	}
-	
+
 	public char[] getPassword() {
 		return passwordField.getPassword();
 	}
-	
+
 	public void clearPassword() {
 		passwordField.setText("");
 	}
-	
+
 	public void setUsernameError(String error) {
 		lblUsernameError.setText(error);
-	} 
-	
+	}
+
 	public void clearUsernameError() {
 		lblUsernameError.setText("");
 	}
-	
+
 	public void clearPasswordError() {
-		lblPasswordError.setText("");;
+		lblPasswordError.setText("");
+		;
 	}
-	
+
 	public void setPasswordError() {
 		lblPasswordError.setText("Password cannot be blank");
 	}
-	
-	public boolean btnLoginIsSource (Object source) {
-		return source == btnLogin;	
+
+	public boolean btnLoginIsSource(Object source) {
+		return source == btnLogin;
 	}
-	
+
 	public boolean btnCloseIsSource(Object source) {
 		return source == btnClose;
 	}
-	
+
 	public boolean isSourceBtnHelp(Object source) {
 		return source == btnHelp;
 	}

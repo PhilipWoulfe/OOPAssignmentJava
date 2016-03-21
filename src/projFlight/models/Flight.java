@@ -3,11 +3,11 @@ package projFlight.models;
 public class Flight {
 	private int bookingRef;
 	private int userID;
-	private String deptLeg1Aircode;
-	private String destLeg1AirCode;
+	private String deptLeg1Airport;
+	private String destLeg1Airport;
 	private String leg1SeatType;
-	private String deptLeg2AirCode;
-	private String destLeg2AirCode;
+	private String deptLeg2Airport;
+	private String destLeg2Airport;
 	private boolean hasInsurance;
 	
 	public int getBookingRef() {
@@ -22,29 +22,31 @@ public class Flight {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	public String getDeptLeg1Aircode() {
-		return deptLeg1Aircode;
+	public String getDeptLeg1Airport() {
+		return deptLeg1Airport;
 	}
-	public void setDeptLeg1Aircode(String deptLeg1Aircode) {
-		this.deptLeg1Aircode = deptLeg1Aircode;
+	public void setDeptLeg1Airport(String deptLeg1Airport) {
+		this.deptLeg1Airport = deptLeg1Airport;
 	}
-	public String getDestLeg1AirCode() {
-		return destLeg1AirCode;
+	public String getDestLeg1Airport() {
+		return destLeg1Airport;
 	}
-	public void setDestLeg1AirCode(String destLeg1AirCode) {
-		this.destLeg1AirCode = destLeg1AirCode;
+	public void setDestLeg1Airport(String destLeg1Airport) {
+		this.destLeg1Airport = destLeg1Airport;
 	}
-	public String getDeptLeg2AirCode() {
-		return deptLeg2AirCode;
+	public String getDeptLeg2Airport() {
+		String deptLeg2Airport = this.deptLeg2Airport;
+		return deptLeg2Airport;
 	}
-	public void setDeptLeg2AirCode(String deptLeg2AirCode) {
-		this.deptLeg2AirCode = deptLeg2AirCode;
+	public void setDeptLeg2Airport(String deptLeg2Airport) {
+		this.deptLeg2Airport = deptLeg2Airport;
 	}
-	public String getDestLeg2AirCode() {
-		return destLeg2AirCode;
+	public String getDestLeg2Airport() {
+		String destLeg2Airport = this.destLeg2Airport;
+		return destLeg2Airport;
 	}
-	public void setDestLeg2AirCode(String destLeg2AirCode) {
-		this.destLeg2AirCode = destLeg2AirCode;
+	public void setDestLeg2Airport(String destLeg2Airport) {
+		this.destLeg2Airport = destLeg2Airport;
 	}
 	public boolean isHasInsurance() {
 		return hasInsurance;
@@ -58,6 +60,4 @@ public class Flight {
 	public void setLeg1SeatType(String leg1SeatType) {
 		this.leg1SeatType = leg1SeatType;
 	}
-	
-	
 }

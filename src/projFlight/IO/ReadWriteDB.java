@@ -131,35 +131,35 @@ public class ReadWriteDB {
 	}
 	
 	public static void addFlightToDB(User user, Flight flight) {
-		String temp = flight.getDeptLeg1Aircode();
 		
-		String deptLeg1Code = getCodeForAirport(temp);
-		String destLeg1Code = getCodeForAirport(flight.getDestLeg1AirCode());
-		String deptLeg2Code = getCodeForAirport(flight.getDeptLeg2AirCode());
-		String destLeg2Code = getCodeForAirport(flight.getDestLeg2AirCode());
+		String deptLeg1Code = getCodeForAirport(flight.getDeptLeg1Airport());
+		String destLeg1Code = getCodeForAirport(flight.getDestLeg1Airport());
+		String deptLeg2Code = getCodeForAirport(flight.getDeptLeg2Airport());
+		String destLeg2Code = getCodeForAirport(flight.getDestLeg2Airport());
 
 		createConnection();
 		try {
-			String insertSQL = "INSERT INTO flights (UserID, DeptLeg1AirCode, DestLeg1AirCode, DeptLeg2AirCode, DestLeg2AirCode, Insurance) values (?, ?, ?, ?, ?, ?)";
+			String insertSQL = "INSERT INTO flights (BookingRef, UserID, DeptLeg1AirCode, DestLeg1AirCode, DeptLeg2AirCode, DestLeg2AirCode, Insurance) values (?, ?, ?, ?, ?, ?, ?)";
 			statement = conn.prepareStatement(insertSQL);
 
-			statement.setInt(1, user.getUserID());
-			statement.setString(2, deptLeg1Code);
-			statement.setString(3, destLeg1Code);
+			statement.setInt(1, flight.getBookingRef());
+			statement.setInt(2, flight.getUserID());
+			statement.setString(3, deptLeg1Code);
+			statement.setString(4, destLeg1Code);
 
 			if (deptLeg2Code != null) {
-				statement.setString(4, deptLeg2Code);
-			} else {
-				statement.setString(4, "");
-			}
-
-			if (destLeg2Code != null) {
-				statement.setString(5, destLeg2Code);
+				statement.setString(5, deptLeg2Code);
 			} else {
 				statement.setString(5, "");
 			}
 
-			statement.setBoolean(6, flight.isHasInsurance());
+			if (destLeg2Code != null) {
+				statement.setString(6, destLeg2Code);
+			} else {
+				statement.setString(6, "");
+			}
+
+			statement.setBoolean(7, flight.isHasInsurance());
 			statement.execute();
 
 		} catch (SQLException sqlExcept) {
@@ -320,7 +320,7 @@ public class ReadWriteDB {
 			System.gc();
 		} catch (Exception e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Message: " + e.getMessage(), "Warning", 0);
+			JOptionPane.showMessageDialog(null, "Unable to connect to Database. Please ensure database exists and there are no currently open connections", "Warning", 0);
 		}
 	}
 	

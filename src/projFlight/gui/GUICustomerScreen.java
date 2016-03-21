@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.util.List;
 
 import javax.swing.JRadioButton;
+import javax.swing.UIManager;
 
 import projFlight.Event.GUIMainEvent;
 import projFlight.models.Airport;
@@ -41,7 +42,7 @@ public class GUICustomerScreen extends JPanel {
 	private JButton btnBookFlights;
 	private JButton btnClear;
 	private JButton btnLogout;
-	private String defaultItem = "--Select Airport--";
+	private String defaultItem = "--Select Seat--";
 	private JButton btnHelp;
 
 
@@ -198,7 +199,6 @@ public class GUICustomerScreen extends JPanel {
 		btnHelp.setBounds(398, 300, 60, 23);
 		btnHelp.addActionListener(event);
 		add(btnHelp);
-
 	}
 
 	/**
@@ -247,6 +247,10 @@ public class GUICustomerScreen extends JPanel {
 
 	public String getCboSeatType() {
 		return cboSeatType.getSelectedItem().toString();
+	}
+	
+	public int getCboSeatTypeIndex() {
+		return cboSeatType.getSelectedIndex();
 	}
 
 	// Departure leg 2
@@ -396,7 +400,7 @@ public class GUICustomerScreen extends JPanel {
 			//cboDestLeg1.addItem(defaultItem);
 			//System.out.println(airportList.get(0));
 			for (int i = 0; i < airportList.size(); i++) {
-				if (airportList.get(i).equals(cboDeptLeg1.getSelectedItem())) {
+				if (airportList.get(i).equals(cboDeptLeg1.getSelectedItem()) && !airportList.get(i).toString().equals(" -Select Airport- ")) {
 					continue;
 				} else {
 					cboDestLeg1.addItem(airportList.get(i));
@@ -416,7 +420,7 @@ public class GUICustomerScreen extends JPanel {
 			//boolean three = cboDestLeg1.getSelectedItem() != null;
 			//boolean four = cboDestLeg1.getSelectedItem().toString().equals(defaultItem);
 			
-			if (!getRdbtnOneWaySelected() && cboDeptLeg1 != null && cboDestLeg1.getSelectedItem() != null) {
+			if (!getRdbtnOneWaySelected() && cboDeptLeg1 != null && cboDestLeg1.getSelectedItem() != null ) {
 				cboDeptLeg2.addItem((Airport)cboDestLeg1.getSelectedItem());
 			} 
 		}
@@ -429,8 +433,11 @@ public class GUICustomerScreen extends JPanel {
 			//cboDestLeg2.addItem(defaultItem);			
 
 			for (int i = 0; i < airportList.size(); i++) {
-				
-				if (!rdbtnOneWay.isSelected() && cboDeptLeg2.getSelectedItem() != null && !airportList.get(i).equals(cboDeptLeg2.getSelectedItem())) {
+
+				if (airportList.get(i).equals(cboDeptLeg2.getSelectedItem()) && !airportList.get(i).toString().equals(" -Select Airport- ")) {
+					continue;
+					
+				} else {
 					cboDestLeg2.addItem(airportList.get(i));
 				}
 			}
