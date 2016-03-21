@@ -1,3 +1,12 @@
+/**
+* <h1>GUIConfirmScreen</h1>
+* <p>GUIConfirmScreen handles the confirmation aspect of the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.gui;
 
 import javax.swing.JPanel;
@@ -16,9 +25,7 @@ import projFlight.models.Flight;
 import projFlight.models.User;
 
 public class GUIConfirmScreen extends JPanel {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private JTextField txtName;
@@ -42,9 +49,9 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * Create the panel
-	 * @param event
-	 * @param u
-	 * @param flight
+	 * @param event For action Listeners
+	 * @param u For populating user
+	 * @param flight For storing flight details
 	 */
 	public GUIConfirmScreen(GUIMainEvent event, User u, Flight flight) {
 		
@@ -176,7 +183,7 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * get name
-	 * @return
+	 * @return returns string name
 	 */
 	public JTextField getTxtName() {
 		return txtName;
@@ -184,71 +191,41 @@ public class GUIConfirmScreen extends JPanel {
 
 	/** 
 	 * set name
-	 * @param name
+	 * @param name For setting name
 	 */
 	public void setTxtName(String name) {
 		txtName.setText(name);
 	}
 
 	/**
-	 *  get Seat
-	 * @return
-	 */
-	public String getTxtSeat() {
-		return txtSeat.getText();
-	}
-
-	/**
 	 * set seat
-	 * @param seatType
+	 * @param seatType Sets Seat type 
 	 */
 	public void setTxtSeat(String seatType) {
 		this.txtSeat.setText(seatType);;
 	}
 
-	/**
-	 * get leg 1
-	 * @return
-	 */
-	public String getTxtLeg1() {
-		return txtLeg1.getText();
-	}
 	
 	/**
 	 * set leg 1
-	 * @param leg1
+	 * @param leg1 Sets leg 1 details
 	 */
 	public void setTxtLeg1(String leg1) {
 		this.txtLeg1.setText(leg1);
 	}
 
-	/**
-	 * get leg 2
-	 * @return
-	 */
-	public String getTxtLeg2() {
-		return txtLeg2.getText();
-	}
 
 	/** 
 	 * set leg 2
-	 * @param leg2
+	 * @param leg2 Sets leg 2 details
 	 */
 	public void setTxtLeg2(String leg2) {
 		this.txtLeg2.setText(leg2);;
 	}
 
 	/**
-	 * get insurance
-	 * @return
-	 */
-	public String getTxtInsurance() {
-		return txtInsurance.getText();
-	}
-
-	/**
 	 * set insurance
-	 * @param insurance
+	 * @param insurance  set values for insurance
 	 */
 	public void setTxtInsurance(String insurance) {
 		this.txtInsurance.setText(insurance);
@@ -256,7 +233,7 @@ public class GUIConfirmScreen extends JPanel {
 
 	/**
 	 * get booking ref
-	 * @return
+	 * @return returns booking ref
 	 */
 	public String getTxtBookRef() {
 		return txtBookRef.getText();
@@ -264,7 +241,7 @@ public class GUIConfirmScreen extends JPanel {
 
 	/**
 	 * set booking ref
-	 * @param bookRef
+	 * @param bookRef sets booking reference
 	 */
 	public void setTxtBookRef(String bookRef) {
 		this.txtBookRef.setText(bookRef);
@@ -272,8 +249,8 @@ public class GUIConfirmScreen extends JPanel {
 
 	/**
 	 * confirm clicked
-	 * @param source
-	 * @return
+	 * @param source for action listeners
+	 * @return if this button is the source
 	 */
 	public boolean isSourceBtnConfirm(Object source) {
 		return source == btnConfirm;
@@ -281,7 +258,7 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * enable/disable confirm button
-	 * @param enabled
+	 * @param enabled enable or disable confirm button
 	 */
 	public void enableBtnConfirm(boolean enabled) {
 		btnConfirm.setEnabled(enabled);
@@ -289,8 +266,8 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * print clicked
-	 * @param source
-	 * @return
+	 * @param source for action listeners
+	 * @return if this button is the source
 	 */
 	public boolean isSourceBtnPrint(Object source) {
 		return source == btnPrint;
@@ -298,8 +275,8 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * exit clicked
-	 * @param source
-	 * @return
+	 * @param source for action listeners
+	 * @return if this button is the source
 	 */
 	public boolean isSourceBtnExit(Object source) {
 		return source == btnExit;
@@ -307,8 +284,8 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * help clicked
-	 * @param source
-	 * @return
+	 * @param source for action listeners
+	 * @return if this button is the source
 	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return source == btnHelp;
@@ -316,7 +293,7 @@ public class GUIConfirmScreen extends JPanel {
 	
 	/**
 	 * enable/disable leg 2
-	 * @param enabled
+	 * @param enabled set leg 2 enabled/disabled
 	 */
 	public void enableLeg2(boolean enabled) {
 		txtLeg2.setEnabled(enabled);

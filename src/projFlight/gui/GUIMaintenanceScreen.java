@@ -1,3 +1,12 @@
+/**
+* <h1>GUIMaintenanceScreen</h1>
+* <p>GUIMaintenanceScreen handles the maintenance aspect of the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.gui;
 
 
@@ -41,8 +50,8 @@ public class GUIMaintenanceScreen extends JPanel {
 
 	/**
 	 * Create the panel
-	 * @param event
-	 * @param airportList
+	 * @param event Used for adding event listeners
+	 * @param airportList Used to store and recall airports 
 	 */
 	public GUIMaintenanceScreen(GUIMainEvent event, List<Airport> airportList) {
 		
@@ -82,8 +91,8 @@ public class GUIMaintenanceScreen extends JPanel {
 
 	/**
 	 * Create a text pane
-	 * @param event
-	 * @return
+	 * @param event For action listeners
+	 * @return Returns a text panel
 	 */
 	protected JComponent makeTextPanel(GUIMainEvent event) {
 		JPanel panel = new JPanel(false);
@@ -149,7 +158,7 @@ public class GUIMaintenanceScreen extends JPanel {
 	
 	/**
 	 * populate the remove box from Airport list
-	 * @param airportList
+	 * @param airportList For populating combo box
 	 */
 	public void populateAirportRemoveBox(List<Airport> airportList) {
 		
@@ -169,71 +178,135 @@ public class GUIMaintenanceScreen extends JPanel {
 		}
 	}
 
-	
-
+	/**
+	 * Get text from add airport text box
+	 * @return Returns add airport text
+	 */
 	public String getTxtAddAirport() {
 		return txtAddAirport.getText();
 	}
 	
+	/**
+	 * Set text of add airport text box
+	 * @param str set text from string
+	 */
 	public void setTxtAddAirport(String str) {
 		txtAddAirport.setText(str);
 	}
 
+	/**
+	 * Get selected item from airport remove combo box
+	 * @return returns string of selected item
+	 */
 	public String getCboAirportRemove() {
 		return cboAirportRemove.getSelectedItem().toString();
 	}
 	
+	/**
+	 * Get selected index from remove combo box
+	 * @return returns selected index
+	 */
 	public int getCboAirportRemoveIndex() {
 		return cboAirportRemove.getSelectedIndex();
 	}
 
+	/**
+	 * Returns selected item from Code 1
+	 * @return return single letter
+	 */
 	public String getCboCode1() {
 		return cboCode1.getSelectedItem().toString();
 	}
 
+	/**
+	 * Set selected index for combo box
+	 * @param i sets index from input
+	 */
 	public void setCboCode1(int i) {
 		this.cboCode1.setSelectedIndex(i);;
 	}
 
+	/**
+	 * Returns selected item from Code 2
+	 * @return return single letter
+	 */
 	public String getCboCode2() {
 		return cboCode2.getSelectedItem().toString();
 	}
-
+	
+	/**
+	 * Set selected index for combo box
+	 * @param i sets index from input
+	 */
 	public void setCboCode2(int i) {
 		this.cboCode2.setSelectedIndex(i);
 	}
 
+	/**
+	 * Returns selected item from Code 3
+	 * @return return single letter
+	 */
 	public String getCboCode3() {
 		return cboCode3.getSelectedItem().toString();
 	}
 
+	/**
+	 * Set selected index for combo box
+	 * @param i sets index from input
+	 */
 	public void setCboCode3(int i) {
 		this.cboCode3.setSelectedIndex(i);
 	}
 
-	public JTable getBookingTable() {
-		return bookingTable;
-	}
-
+	/**
+	 * Set Booking Table from input
+	 * @param bookingTable sets table from input
+	 */
 	public void setBookingTable(JTable bookingTable) {
 		this.bookingTable = bookingTable;
 	}
 	
+	/**
+	 * Is this button the source
+	 * @param source compares with this button
+	 * @return whether this is the source
+	 */
 	public boolean isSourceBtnRemove(Object source) {
 		return btnRemove == source;
 	}
+	
+	/**
+	 * Is this button the source
+	 * @param source compares with this button
+	 * @return whether this is the source
+	 */
 	public boolean isSourceBtnAddAirport(Object source) {
 		return btnAddAirport == source;
 	}
+	
+	/**
+	 * Is this button the source
+	 * @param source compares with this button
+	 * @return whether this is the source
+	 */
 	public boolean isSourceBtnLogout(Object source) {
 		return btnLogout == source;
 	}
 	
-	public void setScrollPane(JTable table) {
-		scrollPane.setViewportView(table);
-	}
-	
+	/**
+	 * Is this button the source
+	 * @param source compares with this button
+	 * @return whether this is the source
+	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return btnHelp == source;
+	}
+	
+	/**
+	 * Sets Scroll Pane
+	 * @param table Sets scroll pane with table
+	 */
+	public void setScrollPane(JTable table) {
+		scrollPane.setViewportView(table);
 	}
 }

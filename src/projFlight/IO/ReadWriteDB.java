@@ -1,3 +1,12 @@
+/**
+* <h1>ReadWriteDB</h1>
+* <p>ReadWriteDB handles reading and writing to the DB for the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.IO;
 
 import java.sql.Connection;
@@ -32,9 +41,9 @@ public class ReadWriteDB {
 	
 	/**
 	 * Check the input password and username by connecting to the DB
-	 * @param usernameInput
-	 * @param passwordInput
-	 * @return 
+	 * @param usernameInput Takes input username
+	 * @param passwordInput Takes input password
+	 * @return returns boolean if username and password are valid and match
 	 */
 	public static boolean validatePassword(String usernameInput, char[] passwordInput) {
 		
@@ -70,8 +79,8 @@ public class ReadWriteDB {
 	
 	/**
 	 * Create a user object using information from the DB
-	 * @param username
-	 * @return
+	 * @param username creates a user object using the username to query the DB
+	 * @return returns created user
 	 */
 	public static User createUser(String username) {
 		
@@ -112,8 +121,8 @@ public class ReadWriteDB {
 	
 	/** 
 	 * populate airport list from db
-	 * @param airportList
-	 * @return
+	 * @param airportList Accepts airportList and populates it
+	 * @return returns populated airport list
 	 */
 	public static List<Airport> populateAirportList(List<Airport> airportList) {
 		
@@ -156,8 +165,8 @@ public class ReadWriteDB {
 	
 	/**
 	 * Adds the input flight to the DB
-	 * @param user
-	 * @param flight
+	 * @param user accepts user and uses it to create flight
+	 * @param flight populates flight object and returns it
 	 */
 	public static void addFlightToDB(User user, Flight flight) {
 		
@@ -212,8 +221,8 @@ public class ReadWriteDB {
 	
 	/**
 	 * Add new airport to DB
-	 * @param airCode
-	 * @param name
+	 * @param airCode accepts aircode and adds new airport to db
+	 * @param name accepts name and adds new airport to db
 	 */
 	public static void addAirportToDB(String airCode, String name) {
 		
@@ -246,7 +255,7 @@ public class ReadWriteDB {
 	
 	/**
 	 * removes input airport from DB
-	 * @param airport
+	 * @param airport accepts airport and removes matching airport from db
 	 */
 	public static void removeAirportFromDB(String airport) {
 		
@@ -275,7 +284,7 @@ public class ReadWriteDB {
 	
 	/** 
 	 * get the next available booking reference
-	 * @return
+	 * @return returns next available booking reference
 	 */
 	public static int getNextBookingRef() {
 		
@@ -308,8 +317,8 @@ public class ReadWriteDB {
 	
 	/**
 	 * Get the code for the input airport
-	 * @param name
-	 * @return
+	 * @param name accepts name of airport
+	 * @return returns aircode for input airport
 	 */
 	public static String getCodeForAirport(String name) {
 		
@@ -346,7 +355,7 @@ public class ReadWriteDB {
 	
 	/**
 	 * populate the booking table from the DB
-	 * @return
+	 * @return returns JTable populated from db
 	 */
 	public static JTable populateBookingTable() {
 		
@@ -377,8 +386,8 @@ public class ReadWriteDB {
 	
 	/**
 	 * Build a table from the result set
-	 * @param rs
-	 * @return
+	 * @param rs accepts result set
+	 * @return returns DefaultTableModel populated from result set
 	 * @throws SQLException
 	 */
 	private static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {

@@ -1,6 +1,11 @@
 /**
- * 
- */
+* <h1>GUIMainEvent</h1>
+* <p>GUIMainEvent handles all teh events for the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
 package projFlight.Event;
 
 import java.awt.event.ActionListener;
@@ -47,7 +52,7 @@ public class GUIMainEvent implements ActionListener {
 	
 	/**
 	 * Constructor, takes in a GUIMain parameter
-	 * @param in
+	 * @param in Accepts GUI main for constructor
 	 */
 	public GUIMainEvent(GUIMain in) {
 		gui = in;
@@ -56,7 +61,7 @@ public class GUIMainEvent implements ActionListener {
 
 	/**
 	 * Controls action events - maybe this could be better
-	 * @param event
+	 * @param event accepts event for checking actions
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
@@ -325,7 +330,7 @@ public class GUIMainEvent implements ActionListener {
 	
 	/**
 	 * Creates a new flight object from the details selected on this screen and returns it
-	 * @return
+	 * @return Returns populated flight
 	 */
 	private Flight createFlight() {
 		f = new Flight();
@@ -354,15 +359,15 @@ public class GUIMainEvent implements ActionListener {
 	
 	/**
 	 * Get the login screen and return it
-	 * @return login screen
+	 * @return login Returns Login screen
 	 */
 	public GUILoginScreen getLogin() {
 		return login;
 	}
 
 	/**
-	 * set the local login screen
-	 * @param login
+	 * set the local login screen 
+	 * @param login Sets login screen
 	 */
 	public void setLogin(GUILoginScreen login) {
 		this.login = login;

@@ -1,3 +1,12 @@
+/**
+* <h1>GUILoginScreen</h1>
+* <p>GUILoginScreen handles the login for flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.gui;
 
 import javax.swing.JPanel;
@@ -28,7 +37,7 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * Construct the panel
-	 * @param mainEvent
+	 * @param mainEvent Uses event to create actionlisteners
 	 */
 	public GUILoginScreen(GUIMainEvent mainEvent) {
 
@@ -87,7 +96,7 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * Gets username
-	 * @return String
+	 * @return String Returns string of input username
 	 */
 	public String getUsername() {
 		return tboUsername.getText();
@@ -95,7 +104,7 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * get Password
-	 * @return char[]
+	 * @return char[] returns char array of input password
 	 */
 	public char[] getPassword() {
 		return passwordField.getPassword();
@@ -110,7 +119,7 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * set username error message
-	 * @param error
+	 * @param error accepts username error message
 	 */
 	public void setUsernameError(String error) {
 		lblUsernameError.setText(error);
@@ -139,17 +148,17 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * check if login was source
-	 * @param source
-	 * @return boolean
-	 */
+	 * @param source accepts object
+	 * @return boolean returns if this object matches input object
+	 */ 
 	public boolean btnLoginIsSource(Object source) {
 		return source == btnLogin;
 	}
 
 	/**
 	 * Check if close is source
-	 * @param source
-	 * @return boolean
+	 * @param source accepts object
+	 * @return boolean returns if this object matches input object
 	 */
 	public boolean btnCloseIsSource(Object source) {
 		return source == btnClose;
@@ -157,8 +166,8 @@ public class GUILoginScreen extends JPanel {
 
 	/**
 	 * check if help was source
-	 * @param source
-	 * @return boolean
+	 * @param source accepts object
+	 * @return boolean returns if this object matches input object
 	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return source == btnHelp;

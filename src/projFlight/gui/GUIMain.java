@@ -1,3 +1,12 @@
+/**
+* <h1>GUIMain</h1>
+* <p>UIMain is the main class of the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.gui;
 
 import java.awt.image.BufferedImage;
@@ -26,6 +35,7 @@ public class GUIMain {
 	
 	/**
 	 * Launch the application.
+	 * @param args Main Method
 	 */
 	public static void main(String[] args) {
 		GUIMain window = new GUIMain();
@@ -77,7 +87,7 @@ public class GUIMain {
 
 	/**
 	 * Add a logo to the input panel
-	 * @param panel
+	 * @param panel Adds logo to input panel
 	 */
 	public void addLogo(JPanel panel) {
 		BufferedImage myPicture = null;
@@ -97,9 +107,9 @@ public class GUIMain {
 	
 	/**
 	 * Change remove remove from mainFraim and add add
-	 * @param mainFrame
-	 * @param remove
-	 * @param add
+	 * @param mainFrame Frame to change panels in
+	 * @param remove Panel to be removed
+	 * @param add Panel to be added
 	 */
 	
 	public void changeScreens(JFrame mainFrame, JPanel remove, JPanel add) {
@@ -113,7 +123,7 @@ public class GUIMain {
 	
 	/**
 	 * getter method for frame
-	 * @return JFrame
+	 * @return JFrame returns this frame
 	 */
 	public JFrame getFrame() {
 		return this.frame;

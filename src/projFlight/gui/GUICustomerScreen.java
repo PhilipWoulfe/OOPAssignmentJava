@@ -1,3 +1,12 @@
+/**
+* <h1>GUICustomer</h1>
+* <p>GUICustomer is where the flights can be selected for the flight project</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-21 
+*/
+
 package projFlight.gui;
 
 import javax.swing.JPanel;
@@ -19,33 +28,37 @@ import javax.swing.JButton;
 
 public class GUICustomerScreen extends JPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Create the panel.
-	 */
 
+	private static final long serialVersionUID = 1L;
 
 	private JRadioButton rdbtnOneWay;
 	private JRadioButton rdbtnReturnsecondLeg;
+	
 	private ButtonGroup group;
+	
 	private JComboBox<Airport> cboDeptLeg1;
 	private JComboBox<Airport> cboDestLeg1;
 	private JComboBox<String> cboSeatType;
-	private JLabel lblDeptLeg2;
-	private JLabel lblDestLeg2;
 	private JComboBox<Airport> cboDeptLeg2;
 	private JComboBox<Airport> cboDestLeg2;
+	
+	private JLabel lblDeptLeg2;
+	private JLabel lblDestLeg2;
+	
 	private JCheckBox chkbxInsurance;
+	
 	private JButton btnBookFlights;
 	private JButton btnClear;
 	private JButton btnLogout;
-	private String defaultItem = "--Select Seat--";
 	private JButton btnHelp;
+	
+	private String defaultItem = "--Select Seat--";
 
-
+	/**
+	 * Constructor for Customer Screen
+	 * @param event Used for action listeners
+	 * @param user Used to populate name fields
+	 */
 	public GUICustomerScreen(GUIMainEvent event, User user) {
 
 		setLayout(null);
@@ -190,7 +203,7 @@ public class GUICustomerScreen extends JPanel {
 	// RDB One Way
 	/**
 	 * get one way selected
-	 * @return boolean
+	 * @return if one way is selected
 	 */
 	public boolean getRdbtnOneWaySelected() {
 		return rdbtnOneWay.isSelected();
@@ -207,7 +220,7 @@ public class GUICustomerScreen extends JPanel {
 	//CBO Dept 1
 	/**
 	 * set dept leg 1 from airport list
-	 * @param airportList
+	 * @param airportList Populates combo box from list
 	 */
 	public void setCboDeptLeg1(List<Airport> airportList) {
 		populateComboBoxDeptLeg1(airportList);
@@ -215,7 +228,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/** 
 	 * get current selected item from dept leg 1
-	 * @return String
+	 * @return combo box selected item
 	 */
 	public String getCboDeptLeg1Selected() {
 		return cboDeptLeg1.getSelectedItem().toString();
@@ -223,7 +236,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * get dept leg 1 selected index
-	 * @return int
+	 * @return currently selected index
 	 */
 	public int getCboDeptLeg1Index() {
 		return cboDeptLeg1.getSelectedIndex();
@@ -232,8 +245,8 @@ public class GUICustomerScreen extends JPanel {
 	
 	// Destination leg 1
 	/**
-	 * get Dest 1 current indec
-	 * @return int
+	 * get Dest 1 current index
+	 * @return currently selected index
 	 */
 	public int getCboDestLeg1Index() {
 		return cboDestLeg1.getSelectedIndex();
@@ -241,7 +254,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * set Dest 1 from airportlist
-	 * @param airportList
+	 * @param airportList Populates combo box from list
 	 */
 	public void setCboDestLeg1(List<Airport> airportList) {
 		populateComboBoxDestLeg1(airportList);
@@ -249,7 +262,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * get dest 1 current item
-	 * @return String
+	 * @return combo box selected item
 	 */
 	public String getCboDestLeg1Selected() {
 		return cboDestLeg1.getSelectedItem().toString();
@@ -258,7 +271,7 @@ public class GUICustomerScreen extends JPanel {
 	// seat type
 	/**
 	 * get current selected seat type
-	 * @return String
+	 * @return combo box selected item
 	 */
 	public String getCboSeatType() {
 		return cboSeatType.getSelectedItem().toString();
@@ -266,7 +279,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * get current seat type index
-	 * @return int
+	 * @return currently selected index
 	 */
 	public int getCboSeatTypeIndex() {
 		return cboSeatType.getSelectedIndex();
@@ -276,7 +289,7 @@ public class GUICustomerScreen extends JPanel {
 	// Departure leg 2
 	/**
 	 * set dept 2 from airport list
-	 * @param airportList
+	 * @param airportList Populates combo box from list
 	 */
 	public void setCboDeptLeg2(List<Airport> airportList) {
 		populateComboBoxDeptLeg2(airportList);
@@ -284,7 +297,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * get selected dept 2
-	 * @return String
+	 * @return combo box selected item
 	 */
 	public String getCboDeptLeg2Selected() {
 		return cboDeptLeg2.getSelectedItem().toString();
@@ -292,7 +305,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * get Dept2 current index
-	 * @return int
+	 * @return currently selected index
 	 */
 	public int getCboDeptLeg2Index() {
 		return cboDeptLeg2.getSelectedIndex();
@@ -302,7 +315,7 @@ public class GUICustomerScreen extends JPanel {
 	// destination leg 2
 	/**
 	 * set dest 2 from airportlist
-	 * @param airportList
+	 * @param airportList Populates combo box from list
 	 */
 	public void setCboDestLeg2(List<Airport> airportList) {
 		populateComboBoxDestLeg2(airportList);
@@ -310,7 +323,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * get selected item from dest 2
-	 * @return String
+	 * @return combo box selected item
 	 */
 	public String getCboDestLeg2Selected() {
 		return cboDestLeg2.getSelectedItem().toString();
@@ -318,7 +331,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * get selected index from dest 2
-	 * @return int
+	 * @return currently selected index
 	 */
 	public int getCboDestLeg2Index() {
 		return cboDestLeg2.getSelectedIndex();
@@ -328,7 +341,7 @@ public class GUICustomerScreen extends JPanel {
 	// insurance
 	/**
 	 * set insurance selected
-	 * @param b
+	 * @param b set whether insurance was selected
 	 */
 	public void setChkbxInsurance(boolean b) {
 		chkbxInsurance.setSelected(b);
@@ -336,7 +349,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * get insurance selected
-	 * @return boolean
+	 * @return boolean get whether insurance was selected
 	 */
 	public boolean getChkbxInsurance() {
 		return chkbxInsurance.isSelected();
@@ -347,8 +360,8 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * if one way selected
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceRdbtnOneWay(Object source) {
 		return rdbtnOneWay == source;
@@ -356,8 +369,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if two way selected
-	 * @param source
-	 * @return bolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceRdbtnReturnSecondLeg(Object source) {
 		return rdbtnReturnsecondLeg == source;
@@ -365,8 +378,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if dept 1 changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceCboDeptLeg1(Object source) {
 		return cboDeptLeg1 == source;
@@ -374,8 +387,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if dest 1 changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceCboDestLeg1(Object source) {
 		return cboDestLeg1 == source;
@@ -383,8 +396,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if eat type changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceCboSeatType(Object source) {
 		return cboSeatType == source;
@@ -392,8 +405,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if dept 2 changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceCboDeptLeg2(Object source) {
 		return cboDeptLeg2 == source;
@@ -401,8 +414,8 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * if dest 2 changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceCboDestLeg2(Object source) {
 		return cboDestLeg2 == source;
@@ -410,8 +423,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if insurance changed
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceChkbxInsurance(Object source) {
 		return chkbxInsurance == source;
@@ -419,8 +432,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/** 
 	 * if book flights clicked
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceBtnBookFlights(Object source) {
 		return btnBookFlights == source;
@@ -428,8 +441,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if clear clicked
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceBtnClear(Object source) {
 		return btnClear == source;
@@ -437,8 +450,8 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * if logout clicked
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceBtnLogout(Object source) {
 		return btnLogout == source;
@@ -446,8 +459,8 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * if help clicked
-	 * @param source
-	 * @return boolean
+	 * @param source input source
+	 * @return return if this item was the source
 	 */
 	public boolean isSourceBtnHelp(Object source) {
 		return btnHelp == source;
@@ -456,7 +469,7 @@ public class GUICustomerScreen extends JPanel {
 	/**
 	 * Enable/disable leg 2 combo boxes
 	 * 
-	 * @param enable
+	 * @param enable input whether enable or disable leg 2
 	 */
 
 	public void enableLeg2(boolean enable) {
@@ -492,7 +505,7 @@ public class GUICustomerScreen extends JPanel {
 	/**
 	 * populate dept 1 combo boxes
 	 * 
-	 * @param airportList
+	 * @param airportList populate dept1 from list
 	 */
 	private void populateComboBoxDeptLeg1(List<Airport> airportList) {
 		
@@ -508,7 +521,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * populate dest 1 combo
-	 * @param airportList
+	 * @param airportList populate dest1 from list
 	 */
 	private void populateComboBoxDestLeg1(List<Airport> airportList) {
 		
@@ -538,7 +551,7 @@ public class GUICustomerScreen extends JPanel {
 	
 	/**
 	 * populate dept 2 combo
-	 * @param airportList
+	 * @param airportList populate dept2 from list
 	 */
 	private void populateComboBoxDeptLeg2(List<Airport> airportList) {
 		
@@ -558,7 +571,7 @@ public class GUICustomerScreen extends JPanel {
 
 	/**
 	 * populate dest 2
-	 * @param airportList
+	 * @param airportList  populate dest2 from list
 	 */
 	private void populateComboBoxDestLeg2(List<Airport> airportList) {
 		
