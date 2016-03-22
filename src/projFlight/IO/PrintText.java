@@ -1,3 +1,11 @@
+/**
+* <h1>PrintText</h1>
+* <p>Prints the details of the booked flight</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-22 
+ */
 package projFlight.IO;
 
 import java.io.ByteArrayInputStream;
@@ -19,31 +27,36 @@ import javax.print.attribute.standard.Copies;
 
 import javax.print.event.PrintJobAdapter;
 import javax.print.event.PrintJobEvent;
+import javax.swing.JOptionPane;
 
 import projFlight.models.Flight;
 import projFlight.models.User;
 
 public class PrintText {
 	
-	//TODO add comments
+	/**
+	 * Takes in a user and a flight and prints out the users name and flight details
+	 * @param u uses this for the name
+	 * @param flight uses this for every other detail
+	 */
 	public PrintText(User u, Flight flight) {
 
 		String defaultPrinter = PrintServiceLookup.lookupDefaultPrintService().getName();
 		System.out.println("Default printer: " + defaultPrinter);
 		PrintService service = PrintServiceLookup.lookupDefaultPrintService();
 
-		
+		// Get values from input
 		InputStream is = null;
+		String border = "*****************************************************************************";
 		String name = u.getFirstName() + " " + u.getLastName();
 		String bookRef = flight.getBookingRef() + "";
 		String firstLeg = flight.getDeptLeg1Airport() + " to " + flight.getDestLeg1Airport();
-		String secondLeg = flight.getDeptLeg2Airport().equals("") ? flight.getDeptLeg2Airport() + " to " + flight.getDestLeg2Airport(): "No Second Leg";
+		String secondLeg = flight.getDeptLeg2Airport().equals("") ? "No Second Leg" : flight.getDeptLeg2Airport() + " to " + flight.getDestLeg2Airport();
 		String seatType = flight.getLeg1SeatType();
 		String insurance = flight.isHasInsurance() ? "Yes" : "No";
-				
 		
-		String outputStr = "\nBooking Reference: " + bookRef + "\nName: " + name + "\nFirst Leg: " + firstLeg + "\nSecond Leg: " + secondLeg + 
-									"\nSeat Type: " + seatType + "\nInsurance: " + insurance;
+		String outputStr = border + "\n\r\n\rWolfAir Booking Details\n\r\n\r" + border + "\n\r\n\rBooking Reference: " + bookRef + "\n\rName: " + name + "\n\rFirst Leg: " + firstLeg + "\n\rSecond Leg: " + secondLeg + 
+									"\n\rSeat Type: " + seatType + "\n\rInsurance: " + insurance;
 	 
 		
 		try {
@@ -64,7 +77,7 @@ public class PrintText {
 		try {
 			job.print(doc, pras);
 		} catch (PrintException e) {
-			
+			JOptionPane.showMessageDialog(null, "Error Printing");
 			e.printStackTrace();
 		}
 		pjw.waitForDone();
@@ -77,6 +90,14 @@ public class PrintText {
 	}
 }
 
+/**
+* <h1>PrintJObWatcher</h1>
+* <p>Honestly, I have no idea what this one does. I assume it watches the print job.</p>
+*
+* @author  Philip Woulfe
+* @version 1.0
+* @since   2016-03-22 
+ */
 class PrintJobWatcher {
 	boolean done = false;
 
@@ -108,6 +129,9 @@ class PrintJobWatcher {
 		});
 	}
 
+	/**
+	 * I think this waits for the print to be done
+	 */
 	public synchronized void waitForDone() {
 		try {
 			while (!done) {
